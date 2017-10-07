@@ -1,0 +1,22 @@
+.container {
+	width: 100%;
+	display: flex;
+}
+
+.searchByLocation {
+	width: 50%;
+	height: 100vh;
+	border: 1px solid black;
+	background-color: red;
+}
+
+.searchbyZip {
+	display: none;
+}
+
+.searchBySports {
+	width: 50%;
+	height: 100vh;
+	border: 1px solid black;
+	background-color: blue;
+}
