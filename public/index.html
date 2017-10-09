@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="src/components/login/login.css">
     <link rel="stylesheet" href="src/components/editProfile/editProfile.css">
     <link rel="stylesheet" href="src/components/searchBy/searchBy.css">
+    <link rel="stylesheet" href="src/components/mapView/mapView.css">
 </head>
 
 <body ng-controller="mainCtrl">
@@ -25,10 +26,14 @@
 <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
 
+<!--GOOGLE MAPS API-->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs&libraries=places"></script>
+
 <!--PUBLIC SCRIPTS-->
 <script src="app.js"></script>
 <script src="src/directives/login.js"></script>
 <script src="js/mainCtrl.js"></script>
 <script src="js/mainSrvc.js"></script>
+<script src="js/mapViewCtrl.js"></script>
 
 </html>

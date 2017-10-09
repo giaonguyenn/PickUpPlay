@@ -21,7 +21,8 @@ angular.module("PickUpPlayApp", ["ui.router"])
 			})
 			.state("mapView", {
 				url:"/mapView",
-				templateUrl: "src/components/mapView/mapView.html"
+				templateUrl: "src/components/mapView/mapView.html",
+				controller: "mapViewCtrl"
 			})
 			.state("sportsView", {
 				url:"/sportsView",
