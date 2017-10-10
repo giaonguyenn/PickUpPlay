@@ -3,13 +3,13 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
 	
-	this.searchZip = function() {
-		$(".searchbyZip").css("display", "initial");
+	this.searchAddress = function() {
+		$(".searchbyAddress").css("display", "initial");
 	};
 	
-	this.getMapByZip = function(zipCode) {
+	this.getMapByAddress = function(address) {
 		return $http
-		.get(baseUrl + zipCode + "&key=" + apiKey)
+		.get(baseUrl + address + "&key=" + apiKey)
 		.then(function(response) {
 			var object = {
 				lat: response.data.results[0].geometry.location.lat,
@@ -17,20 +17,20 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 			};
 
 			function initMap () {
-				var uluru = object;
+				var location = object;
 		        var map = new google.maps.Map(document.getElementById('map'), {
-		          	zoom: 2,
-		          	center: uluru
+		          	zoom: 11,
+		          	center: location
 		        });
 		        var marker = new google.maps.Marker({
-		          	position: uluru,
+		          	position: location,
 		          	map: map
 		        });
 
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        	service = new google.maps.places.PlacesService(map);
-					service.nearbySearch({location: pyrmont, keyword: "basketball", radius: 5000}, (res) => {
-				});
+					service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 5000}, (res) => {
+						console.log(res);				});
 		    };
 
 		    initMap();

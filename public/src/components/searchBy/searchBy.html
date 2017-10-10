@@ -1,9 +1,9 @@
 <div class="container">
-	<div class="searchByLocation" ng-click="searchZip()">
+	<div class="searchByLocation" ng-click="searchAddress()">
 		<h1>Search by Location</h1>
-		<div class="searchbyZip">
-			<input type="text" id="zipCode" ng-model="zipCode" placeholder="Zip Code">
-			<button type="button" id="submitZipButton" ng-click="getMapByZip(zipCode)" >Enter</button>
+		<div class="searchbyAddress">
+			<input type="text" id="address" ng-model="address" placeholder="Address, City, State or Zip">
+			<button type="button" id="submitAddressButton" ng-click="getMapByAddress(address)" >Enter</button>
 		</div>
 	</div>
 

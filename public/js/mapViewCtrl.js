@@ -1,11 +1,11 @@
 angular.module("PickUpPlayApp").controller("mapViewCtrl", function($scope, mainSrvc, $state) {
 
-		$scope.getMapByZip = function(zipCode) {
-			if(zipCode) {
-				mainSrvc.getMapByZip(zipCode);
+		$scope.getMapByAddress = function(address) {
+			if(address) {
+				mainSrvc.getMapByAddress(address);
 				$state.go("mapView");
 			} else {
-				$("#zipCode").css("border", "1px solid red");
+				$("#address").css("border", "1px solid red");
 			}
 		};
 });
