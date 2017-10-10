@@ -17,7 +17,8 @@ angular.module("PickUpPlayApp", ["ui.router"])
 			})
 			.state("searchBy", {
 				url:"/searchBy",
-				templateUrl: "src/components/searchBy/searchBy.html"
+				templateUrl: "src/components/searchBy/searchBy.html",
+				controller: "mapViewCtrl"
 			})
 			.state("mapView", {
 				url:"/mapView",

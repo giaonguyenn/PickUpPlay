@@ -2,8 +2,8 @@
 	<div class="searchByLocation" ng-click="searchZip()">
 		<h1>Search by Location</h1>
 		<div class="searchbyZip">
-			<input type="text" id="searchZip" placeholder="Zip Code">
-			<button type="button" id="submitZip" ui-sref="mapView">Enter</button>
+			<input type="text" id="zipCode" ng-model="zipCode" placeholder="Zip Code">
+			<button type="button" id="submitZipButton" ng-click="getMapByZip(zipCode)" >Enter</button>
 		</div>
 	</div>
 
