@@ -3,6 +3,25 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
 	var map;
+
+	this.createUser = (firstName, email, lastName, username, password) => {
+        firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
+            let userInfo = {"uid": user.uid, "firstName": firstName, "email": user.email, "lastName": lastName, "username": username, "password": password}
+            console.log(userInfo)
+            return $http.post('/users/createUser', userInfo)
+        })
+    };
+
+    this.signIn = (emailSignIn, passwordSignIn) => {
+        return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
+            .then(() => {})
+    };
+
+    this.signOut = () => {
+        firebase.auth().signOut().then(() => {
+            console.log(uid, 'Signed Out');
+        })
+    };
 	
 	this.searchAddress = function() {
 		$(".searchbyAddress").css("display", "initial");

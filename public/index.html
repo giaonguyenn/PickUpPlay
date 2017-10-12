@@ -8,32 +8,58 @@
     <title>Pick-Up Play</title>
 
     <!--STYLESHEETS-->
+<!--     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous"> -->
     <link rel="stylesheet" href="mainStyle.css">
     <link rel="stylesheet" href="src/components/login/login.css">
     <link rel="stylesheet" href="src/components/editProfile/editProfile.css">
     <link rel="stylesheet" href="src/components/searchBy/searchBy.css">
     <link rel="stylesheet" href="src/components/mapView/mapView.css">
+
+    <!--FIREBASE SCRIPT-->
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
+
+    <!--INITIALIZE FIREBASE-->
+    <script>
+        var config = {
+            apiKey: "AIzaSyA8QlmLVVrpbDi_r4kR9RUJ4GYMdJSeI7c",
+            authDomain: "pickupplay-54b14.firebaseapp.com",
+            databaseURL: "https://pickupplay-54b14.firebaseio.com",
+            projectId: "pickupplay-54b14",
+            storageBucket: "",
+            messagingSenderId: "319938984301"
+        };
+        firebase.initializeApp(config);
+    </script>
 </head>
 
 <body ng-controller="mainCtrl">
 	<ui-view></ui-view>
+
+    <a ui-sref="mapView"></a>
+
+    <!--BOOTSTRAP JS PLUGINS-->
+<!--     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.11.0/umd/popper.min.js" integrity="sha384-b/U6ypiBEHpOf/4+1nzFpr53nxSS+GLCkfwBdFNTxtclqqenISfwAzpKaMNFNmj4" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/js/bootstrap.min.js" integrity="sha384-h0AbiXch4ZDo7tp9hKZ4TsHbi047NrKGLO3SEJAg45jXxnGIfYzk4Si90RDIqNm1" crossorigin="anonymous"></script> -->
+
+    <!--JQUERY-->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+
+    <!--ANGULAR SCRIPTS-->
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
+
+    <!--GOOGLE MAPS API-->
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs&libraries=places"></script>
+
+    <!--PUBLIC SCRIPTS-->
+    <script src="app.js"></script>
+    <script src="src/directives/login.js"></script>
+    <script src="js/mainCtrl.js"></script>
+    <script src="js/mainSrvc.js"></script>
+    <script src="js/mapViewCtrl.js"></script>
 </body>
-
-<!--JQUERY-->
-<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-
-<!--ANGULAR SCRIPTS-->
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/angular-ui-router/1.0.3/angular-ui-router.js"></script>
-
-<!--GOOGLE MAPS API-->
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs&libraries=places"></script>
-
-<!--PUBLIC SCRIPTS-->
-<script src="app.js"></script>
-<script src="src/directives/login.js"></script>
-<script src="js/mainCtrl.js"></script>
-<script src="js/mainSrvc.js"></script>
-<script src="js/mapViewCtrl.js"></script>
 
 </html>

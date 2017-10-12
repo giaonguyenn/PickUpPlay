@@ -3,12 +3,26 @@
 </div>
 	<br>
 
-<div class="input-field">
-	<input type="text" id="username" placeholder="Username">
-		<br>
-	<input type="password" id="password" placeholder="Password">
-</div>
-	<br>
+<form class="h5 text-center mb-4">
+    <div class="md-form">
+        <i class="fa fa-envelope prefix grey-text"></i>
+        <input type="text" id="defaultForm-email" class="form-control" ng-model="emailSignIn" placeholder="Email Address">
+    </div>
+    <div class="md-form">
+        <i class="fa fa-lock prefix grey-text"></i>
+        <input type="password" id="defaultForm-pass" class="form-control" ng-model="passwordSignIn" placeholder="Password">
+    </div>
+    <div class="text-center">
+        <button class="btn btn-default" ng-click="signIn(emailSignIn,passwordSignIn)">Login</button>
+    </div>
+</form>
 
-<button type="button" id="login-button" ui-sref="searchBy">Login</button>
-<button type="button" id="signup-button" ui-sref="signUp">Sign Up</button>
+    </br>
+
+<div>
+    <p> Not a Member? </p>
+</div>
+
+<button type="button" id="signup-button" ui-sref="signUp">Sign Up Now!</button>
+
+<!-- <a ui-sref="mapView">testtest</a> -->

@@ -5,7 +5,8 @@ angular.module("PickUpPlayApp", ["ui.router"])
 		$stateProvider
 			.state("login", {
 				url:"/",
-				templateUrl: "src/components/login/login.html"
+				templateUrl: "src/components/login/login.html",
+				controller: "mainCtrl"
 			})
 			.state("signUp", {
 				url:"/signUp",
