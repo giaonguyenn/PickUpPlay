@@ -38,7 +38,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 
 			function initMap () {
 				var location = object;
-		        map = new google.maps.Map(document.getElementById('map'), {
+		        map = new google.maps.Map(document.getElementById("map"), {
 		          	zoom: 11,
 		          	center: location
 		        });
@@ -52,7 +52,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 				);
 		    };
 
-		    function callback(results, status) {
+		    function callback (results, status) {
 		        if (status === google.maps.places.PlacesServiceStatus.OK) {
 		        	for (var i = 0; i < results.length; i++) {
 		           		createMarker(results[i]);
@@ -60,23 +60,35 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 		        }
 		    };
 
-	      	function createMarker(place) {
-	      		// console.log(place);
+	      	function createMarker (place) {
+	      		// placeLoc is pulling in coordinates for location that user inputs
 	        	var placeLoc = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
+
 	        	var marker = new google.maps.Marker({
 	          		map: map,
 	          		position: placeLoc
 	        	});
 
-				var contentString = place.name + " - " + place.rating + "</br></br>" + place.vicinity + "</br> </br>";
+				// var contentString = place.name + " - " + place.rating + "<br/><br/>" + place.vicinity + "<br/><br/>";
+				
+				// var imgUrl = "./src/images/plusIcon.png";
 
-        		var infowindow = new google.maps.InfoWindow({});
+				var contentString2 = 
+			  	'<img border="0" align="center" src="./src/images/plusIcon.png">';
+
+        		 infowindow = new google.maps.InfoWindow({
+        			contentString2: '<img border="0" align="center" src="./src/images/plusIcon.png">'
+        			// content: contentString2
+        		});
 
 	        	google.maps.event.addListener(marker, 'click', function() {
-	          		infowindow.setContent(contentString);
+	          		infowindow.setContent(contentString2);
 	          		infowindow.open(map, this);
 	        	});
-	      	}
+	        	// google.maps.event.addListener(marker, 'click', function() {
+	         //  		infowindow.close(map, this);
+	        	// });
+	      	};
 
       		initMap();
 		});
