@@ -5,10 +5,20 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	var map;
 	this.user = {};
 
+	// firebase.auth().onAuthStateChanged(user => {
+ //        if (user) {
+ //            this.user = user;
+ //            return user;
+ //        };
+ //    });
+
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
     this.signIn = (emailSignIn, passwordSignIn) => {
         return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
-            .then(() => {});
+            .then((response) => { console.log(response);
+            	//get user by uid, created endpoint, put here, assign response to this.user
+
+            });
     };
 
 	//CREATING USER AND SENDING INFO TO DATABASE/FIREBASE
@@ -16,13 +26,16 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 		return $q((resolve) => {
 			firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
             	this.user = {"uid": user.uid, "firstName": firstName, "email": user.email, "lastName": lastName, "username": username, "password": password};
-            	console.log(this);
 				$http.post('/users/createUser', this.user);
         		resolve();
+        		console.log(this.user);
         	});	
 		});
-        
     };
+    /* new Promise (resolve, reject){
+		doo stuff here 
+	  		if good stuff resolve,
+	  		if bad stuff reject} */
 
    	//PULLING GAMES FROM DATABASE FOR SPORTSVIEW PAGE
    	this.getSports = () => {
@@ -35,14 +48,10 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
    		})
    	};
 
-    this.createGame = (game, numberOfPlayers, time) => {
-		let gameInfo = {"game": game, "players": numberOfPlayers, "time": time}
+    this.createGame = (uid, game, players, time) => {
+		let gameInfo = {uid, game, players, time}
             return $http.post('/users/createGame', gameInfo)
 	};
-
-    // this.getUser = () => {
-    // 	return $http.get("/users/getUser", )
-    // }
 
     this.signOut = () => {
         firebase.auth().signOut().then(() => {
@@ -114,14 +123,3 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	};
 
 });
-
-
-
-/*
-	new Promise (resolve, reject){
-	  /*doo stuff here /
-	  	if good stuff resolve,
-	  	if bad stuff reject
-	}
-
-*/

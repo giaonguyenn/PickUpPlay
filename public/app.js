@@ -36,6 +36,6 @@ angular.module("PickUpPlayApp", ["ui.router"])
 			.state("gameView", {
 				url:"/gameView",
 				templateUrl: "src/components/gameView/gameView.html",
-				controller: "mainCtrl"
+				controller: "gameViewCtrl"
 			})
 	});

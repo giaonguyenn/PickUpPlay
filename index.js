@@ -34,16 +34,13 @@ app.post("/users/createUser", (req,res,next) => {
 
 app.get("/sportsView/allSports", mainCtrl.getSports);
 
-app.post("/users/createGamee", (req, res, next) => {
+app.post("/users/createGame", (req, res, next) => {
 	req.app
 		.get("db")
-		.create_game(req.body);
-});
-
-app.get("users/getUsers", (req, res, next) => {
-	req.app
-		.get("db")
-		.get_users(req.body);
+		.create_game(req.body)
+		.then((response) => {
+			res.json(response);
+		});
 });
 
 app.listen(port, () => {console.log(`Server listening on port ${port}`);
