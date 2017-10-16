@@ -25,23 +25,13 @@ massive(connectionString).then(db => {
 const db = app.get("db");
 
 /////////////////Endpoints/////////////////
-app.post("/users/createUser", (req,res,next) => {
-	console.log(req.session);
-	 req.app
-        .get("db")
-        .create_user(req.body);
-});
+app.post("/users/createUser", mainCtrl.createUser);
+
+app.get("/users/getUserById/:id", mainCtrl.getUserById);
 
 app.get("/sportsView/allSports", mainCtrl.getSports);
 
-app.post("/users/createGame", (req, res, next) => {
-	req.app
-		.get("db")
-		.create_game(req.body)
-		.then((response) => {
-			res.json(response);
-		});
-});
+app.post("/users/createGame", mainCtrl.createGame);
 
 app.listen(port, () => {console.log(`Server listening on port ${port}`);
 });

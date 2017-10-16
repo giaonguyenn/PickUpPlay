@@ -1,1 +1,1 @@
-INSERT INTO users (authid, firstname, email, lastname, username, password) VALUES (${uid}, ${firstName}, ${email}, ${lastName}, ${username}, ${password});
+INSERT INTO users (uid, firstname, email, lastname, username, password) VALUES (${uid}, ${firstName}, ${email}, ${lastName}, ${username}, ${password});

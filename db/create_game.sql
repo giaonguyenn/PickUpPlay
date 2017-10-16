@@ -1,1 +1,1 @@
-INSERT INTO games (authid, game, players, time) VALUES (${uid}, ${game}, ${players}, ${time});
+INSERT INTO games (uid, game, players, time) VALUES (${uid}, ${game}, ${players}, ${time});

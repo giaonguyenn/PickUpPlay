@@ -1,7 +1,7 @@
 angular.module("PickUpPlayApp").controller("mainCtrl", function($scope, mainSrvc, $state) {
 
   $scope.signIn = function (emailSignIn,passwordSignIn) {
-    mainSrvc.signIn(emailSignIn,passwordSignIn);
+  	mainSrvc.signIn(emailSignIn,passwordSignIn);
   	$state.go("searchBy");
   };
 

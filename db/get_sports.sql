@@ -1,1 +1,1 @@
-SELECT * FROM sports;
+SELECT * FROM sports ORDER BY name ASC;

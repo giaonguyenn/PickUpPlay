@@ -5,19 +5,15 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	var map;
 	this.user = {};
 
-	// firebase.auth().onAuthStateChanged(user => {
- //        if (user) {
- //            this.user = user;
- //            return user;
- //        };
- //    });
-
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
     this.signIn = (emailSignIn, passwordSignIn) => {
         return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
-            .then((response) => { console.log(response);
-            	//get user by uid, created endpoint, put here, assign response to this.user
-
+            .then((response) => { 
+            	//Getting user by ID so it can be connected to whoever logs in
+            	return $http.get("/users/getUserById/" + response.uid)
+            		.then((response) => {
+            			this.user = response.data.pop();
+            		});
             });
     };
 
@@ -39,10 +35,9 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 
    	//PULLING GAMES FROM DATABASE FOR SPORTSVIEW PAGE
    	this.getSports = () => {
-   		return $http({
-   			method: "GET",
-   			url: "http://localhost:3000/sportsView/allSports"
-   		}).then((response) => {
+   		return $http
+   			.get("http://localhost:3000/sportsView/allSports")
+   			.then((response) => {
    			const results = response.data;
    			return results;
    		})
@@ -68,7 +63,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	this.getMapByAddress = function(address) {
 		return $http
 		.get(baseUrl + address + "&key=" + apiKey)
-		.then(function(response) {
+		.then((response) => {
 			var object = {
 				lat: response.data.results[0].geometry.location.lat,
 				lng: response.data.results[0].geometry.location.lng
