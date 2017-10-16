@@ -1,21 +1,48 @@
-angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
+angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
 	var map;
+	this.user = {};
 
-	this.createUser = (firstName, email, lastName, username, password) => {
-        firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
-            let userInfo = {"uid": user.uid, "firstName": firstName, "email": user.email, "lastName": lastName, "username": username, "password": password}
-            console.log(userInfo)
-            return $http.post('/users/createUser', userInfo)
-        })
-    };
-
+	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
     this.signIn = (emailSignIn, passwordSignIn) => {
         return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
-            .then(() => {})
+            .then(() => {});
     };
+
+	//CREATING USER AND SENDING INFO TO DATABASE/FIREBASE
+	this.createUser = (firstName, email, lastName, username, password) => {
+		return $q((resolve) => {
+			firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
+            	this.user = {"uid": user.uid, "firstName": firstName, "email": user.email, "lastName": lastName, "username": username, "password": password};
+            	console.log(this);
+				$http.post('/users/createUser', this.user);
+        		resolve();
+        	});	
+		});
+        
+    };
+
+   	//PULLING GAMES FROM DATABASE FOR SPORTSVIEW PAGE
+   	this.getSports = () => {
+   		return $http({
+   			method: "GET",
+   			url: "http://localhost:3000/sportsView/allSports"
+   		}).then((response) => {
+   			const results = response.data;
+   			return results;
+   		})
+   	};
+
+    this.createGame = (game, numberOfPlayers, time) => {
+		let gameInfo = {"game": game, "players": numberOfPlayers, "time": time}
+            return $http.post('/users/createGame', gameInfo)
+	};
+
+    // this.getUser = () => {
+    // 	return $http.get("/users/getUser", )
+    // }
 
     this.signOut = () => {
         firebase.auth().signOut().then(() => {
@@ -23,10 +50,12 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
         })
     };
 	
+	//SEARCHING FOR SPORTS BY ADDRESS
 	this.searchAddress = function() {
 		$(".searchbyAddress").css("display", "initial");
 	};
 	
+	//GETTING MAP BY USING ADDRESS THAT USER INPUTS
 	this.getMapByAddress = function(address) {
 		return $http
 		.get(baseUrl + address + "&key=" + apiKey)
@@ -48,7 +77,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        	service = new google.maps.places.PlacesService(map);
-					service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 5000}, callback
+					service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 10000}, callback
 				);
 		    };
 
@@ -69,25 +98,15 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 	          		position: placeLoc
 	        	});
 
-				// var contentString = place.name + " - " + place.rating + "<br/><br/>" + place.vicinity + "<br/><br/>";
-				
-				// var imgUrl = "./src/images/plusIcon.png";
+				var contentString = place.name + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> __ games currently in session</p><br/>" + "<p>Create game</p>" +
+			  	'<a href="/#/gameView"><img border="0" align="center" style="width: 20px;float:right" src="./src/images/plusIcon.png"></a>';
 
-				var contentString2 = 
-			  	'<img border="0" align="center" src="./src/images/plusIcon.png">';
-
-        		 infowindow = new google.maps.InfoWindow({
-        			contentString2: '<img border="0" align="center" src="./src/images/plusIcon.png">'
-        			// content: contentString2
-        		});
+        		var infowindow = new google.maps.InfoWindow({});
 
 	        	google.maps.event.addListener(marker, 'click', function() {
-	          		infowindow.setContent(contentString2);
+	          		infowindow.setContent(contentString);
 	          		infowindow.open(map, this);
 	        	});
-	        	// google.maps.event.addListener(marker, 'click', function() {
-	         //  		infowindow.close(map, this);
-	        	// });
 	      	};
 
       		initMap();
@@ -95,3 +114,14 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http) {
 	};
 
 });
+
+
+
+/*
+	new Promise (resolve, reject){
+	  /*doo stuff here /
+	  	if good stuff resolve,
+	  	if bad stuff reject
+	}
+
+*/

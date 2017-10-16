@@ -10,11 +10,13 @@ angular.module("PickUpPlayApp", ["ui.router"])
 			})
 			.state("signUp", {
 				url:"/signUp",
-				templateUrl: "src/components/signUp/signUp.html"
+				templateUrl: "src/components/signUp/signUp.html",
+				controller: "signUpCtrl"
 			})
 			.state("editProfile", {
 				url:"/editProfile",
-				templateUrl: "src/components/editProfile/editProfile.html"
+				templateUrl: "src/components/editProfile/editProfile.html",
+				controller: "editProfileCtrl"
 			})
 			.state("searchBy", {
 				url:"/searchBy",
@@ -22,12 +24,18 @@ angular.module("PickUpPlayApp", ["ui.router"])
 				controller: "mapViewCtrl"
 			})
 			.state("mapView", {
-				url:"/mapView",
+				url:"/mapView/:zip",
 				templateUrl: "src/components/mapView/mapView.html",
 				controller: "mapViewCtrl"
 			})
 			.state("sportsView", {
 				url:"/sportsView",
-				templateUrl: "src/components/sportsView/sportsView.html"
+				templateUrl: "src/components/sportsView/sportsView.html",
+				controller: "sportsViewCtrl"
+			})
+			.state("gameView", {
+				url:"/gameView",
+				templateUrl: "src/components/gameView/gameView.html",
+				controller: "mainCtrl"
 			})
 	});

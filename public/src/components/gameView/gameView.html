@@ -1,0 +1,20 @@
+<p>GAME VIEW</p>
+
+<form class="h5 text-center mb-4">
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="orangeForm-name" class="form-control" ng-model="game" placeholder="Game">
+    </div>
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="orangeForm-name" class="form-control" ng-model="numberOfPlayers" placeholder="Number of Players">
+    </div>
+    <div class="md-form">
+        <i class="fa fa-user prefix grey-text"></i>
+        <input type="text" id="orangeForm-username" class="form-control" ng-model="time" placeholder="Time">
+    </div>
+    	</br>
+    <div class="text-center">
+        <button class="btn btn-deep-orange" ng-click="createGame(game, numberOfPlayers, time)">Create Game</button>
+    </div>
+</form>
