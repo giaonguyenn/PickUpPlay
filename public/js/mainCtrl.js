@@ -5,16 +5,12 @@ angular.module("PickUpPlayApp").controller("mainCtrl", function($scope, mainSrvc
   	$state.go("searchBy");
   };
 
-
-
-
-
-  $scope.searchAddress = mainSrvc.searchAddress;
+  // $scope.searchAddress = mainSrvc.searchAddress;
 
   $scope.signOut = mainSrvc.signOut;
 
-  $scope.createGame = function (game, numberOfPlayers, time) {
-  	mainSrvc.createGame(game, numberOfPlayers, time);
-  };
+  // $scope.createGame = function (game, numberOfPlayers, time) {
+  // 	mainSrvc.createGame(game, numberOfPlayers, time);
+  // };
 
 });

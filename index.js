@@ -33,5 +33,7 @@ app.get("/sportsView/allSports", mainCtrl.getSports);
 
 app.post("/users/createGame", mainCtrl.createGame);
 
+app.get("/games/currentGames", mainCtrl.getCurrentGames);
+
 app.listen(port, () => {console.log(`Server listening on port ${port}`);
 });

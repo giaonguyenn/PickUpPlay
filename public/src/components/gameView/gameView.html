@@ -1,5 +1,8 @@
 <p>GAME VIEW</p>
 
+<p>{{place.name}}</p>
+<p>{{place.id}}</p>
+
 <form class="h5 text-center mb-4">
     <div class="md-form">
         <i class="fa fa-user prefix grey-text"></i>
@@ -15,7 +18,14 @@
     </div>
     	</br>
     <div class="text-center">
-        <button class="btn btn-deep-orange" ng-click="createGame(user.uid, game, numberOfPlayers, time)">Create Game</button>
+        <button class="btn btn-deep-orange" ng-click="createGame(user.uid, game, numberOfPlayers, time, place.id)">Create Game</button>
     </div>
     <p>Hello {{user.uid}}</p>
 </form>
+
+<div class="Current Games" ng-repeat="currentgame in currentgames">
+    <p>{{currentgame.game}}</p>
+    <p>{{currentgame.players}} needed</p>
+    <p>At {{currentgame.time}}</p>
+    <p>Created by: {{currentgame.uid}}</p>
+</div>

@@ -21,7 +21,7 @@ angular.module("PickUpPlayApp", ["ui.router"])
 			.state("searchBy", {
 				url:"/searchBy",
 				templateUrl: "src/components/searchBy/searchBy.html",
-				controller: "mapViewCtrl"
+				controller: "searchByCtrl"
 			})
 			.state("mapView", {
 				url:"/mapView/:zip",
@@ -34,7 +34,7 @@ angular.module("PickUpPlayApp", ["ui.router"])
 				controller: "sportsViewCtrl"
 			})
 			.state("gameView", {
-				url:"/gameView",
+				url:"/gameView/:id",
 				templateUrl: "src/components/gameView/gameView.html",
 				controller: "gameViewCtrl"
 			})

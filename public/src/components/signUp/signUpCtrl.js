@@ -1,7 +1,7 @@
 angular.module("PickUpPlayApp").controller("signUpCtrl", function($scope, mainSrvc, $state) {
 
-	$scope.createUser = function (firstName, email, lastName, username, password) {
-    	mainSrvc.createUser(firstName, email, lastName, username, password).then( () => {
+	$scope.createUser = function (firstname, email, lastname, username, password) {
+    	mainSrvc.createUser(firstname, email, lastname, username, password).then( () => {
     		$state.go("editProfile");	
     	});  	
   	};

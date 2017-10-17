@@ -30,5 +30,13 @@ module.exports = {
 			.then((response) => {
 				res.json(response);
 			});
+	},
+
+	getCurrentGames: (req, res, next) => {
+		req.app.get("db")
+			.get_current_games()
+			.then((currentgames) => {
+				res.status("200").send(currentgames);
+			});
 	}
 };
