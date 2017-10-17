@@ -118,10 +118,12 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
             return $http.post('/users/createGame', gameInfo)
 	};
 
-	this.getCurrentGames = () => {
+	this.getCurrentGames = (place) => {
+		console.log(place);
    		return $http
-   			.get("http://localhost:3000/games/currentGames")
+   			.get(`http://localhost:3000/games/currentGames/${place}`)
    			.then((response) => {
+   				console.log(response);
    			const results = response.data;
    			return results;
    		})

@@ -34,7 +34,7 @@ module.exports = {
 
 	getCurrentGames: (req, res, next) => {
 		req.app.get("db")
-			.get_current_games()
+			.get_current_games(req.params.id)
 			.then((currentgames) => {
 				res.status("200").send(currentgames);
 			});
