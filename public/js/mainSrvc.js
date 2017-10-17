@@ -3,10 +3,9 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
 	var map;
-	this.user = {};
 	var that = this;
-	that.places = [];
 
+	this.user = {};
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
     this.signIn = (emailSignIn, passwordSignIn) => {
         return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
@@ -50,6 +49,8 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 		$(".searchbyAddress").css("display", "initial");
 	};
 	
+	that.places = [];
+
 	//GETTING MAP BY USING ADDRESS THAT USER INPUTS
 	this.getMapByAddress = function(address) {
 		return $http
@@ -87,9 +88,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	      	function createMarker (place) {
 	      		// placeLoc is pulling in coordinates for location that user inputs
 
-	      		console.log(place);
 	      		that.places.push(place);
-	      		console.log(that.places);
 
 	        	var placeLoc = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
 
@@ -119,14 +118,25 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	};
 
 	this.getCurrentGames = (place) => {
-		console.log(place);
    		return $http
    			.get(`http://localhost:3000/games/currentGames/${place}`)
    			.then((response) => {
-   				console.log(response);
    			const results = response.data;
    			return results;
    		})
+   	};
+
+   	that.myGames = [];
+
+   	this.getMyGames = (useruid) => {
+   		console.log("hit the service");
+   		return $http
+   			.get(`/user/myGames/${useruid}`)
+   			.then((response) => {
+   				that.myGames = response.data;
+   				console.log(that.myGames);
+   				return response.data;
+   			})
    	};
 
     this.signOut = () => {

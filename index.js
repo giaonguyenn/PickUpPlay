@@ -35,5 +35,7 @@ app.post("/users/createGame", mainCtrl.createGame);
 
 app.get("/games/currentGames/:id", mainCtrl.getCurrentGames);
 
+app.get("/user/myGames/:id", mainCtrl.getMyGames);
+
 app.listen(port, () => {console.log(`Server listening on port ${port}`);
 });

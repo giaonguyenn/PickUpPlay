@@ -17,7 +17,20 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   		mainSrvc.getCurrentGames($stateParams.id)
   		.then((response) => {
   			$scope.currentgames = response;
+  			// $scope.userById = () => {
+  			// 	mainSrvc.getUsername($scope.currentgames.uid)
+  			// 	.then( user => {
+  			// 		$scope.username = user.username
+  			// 	})
+  			// }
   		});
   	};
+
+  	$scope.getMyGames = (useruid) => {
+		mainSrvc.getMyGames(useruid)
+			.then((response) => {
+				$state.go("myGames", response);
+			})
+	};
 
 });

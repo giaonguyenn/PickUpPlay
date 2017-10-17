@@ -38,5 +38,14 @@ module.exports = {
 			.then((currentgames) => {
 				res.status("200").send(currentgames);
 			});
+	},
+
+	getMyGames: (req, res, next) => {
+		req.app
+			.get("db")
+			.get_my_games(req.params.id)
+			.then((myGames) => {
+				res.status("200").send(myGames);
+			});
 	}
 };
