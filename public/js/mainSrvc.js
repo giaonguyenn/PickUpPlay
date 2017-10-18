@@ -126,10 +126,18 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
    		})
    	};
 
+   	this.getUsername = (useruid) => {
+   		return $http
+   			.get(`http://localhost:3000/user/username/${useruid}`)
+   			.then((response) => {
+   				const results = response.data;
+   				return results;
+   			})
+   	};
+
    	that.myGames = [];
 
    	this.getMyGames = (useruid) => {
-   		console.log("hit the service");
    		return $http
    			.get(`/user/myGames/${useruid}`)
    			.then((response) => {

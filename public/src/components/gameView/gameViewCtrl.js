@@ -17,12 +17,15 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   		mainSrvc.getCurrentGames($stateParams.id)
   		.then((response) => {
   			$scope.currentgames = response;
-  			// $scope.userById = () => {
-  			// 	mainSrvc.getUsername($scope.currentgames.uid)
-  			// 	.then( user => {
-  			// 		$scope.username = user.username
-  			// 	})
-  			// }
+  			console.log(response);
+  			$scope.useruid = $scope.currentgames[0].uid;
+  			
+  			mainSrvc.getUsername($scope.useruid)
+  				.then((response) => {
+  					$scope.username = response[0].username;
+  					console.log($scope.username);
+  					return $scope.username;
+  			});
   		});
   	};
 
@@ -30,7 +33,7 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
 		mainSrvc.getMyGames(useruid)
 			.then((response) => {
 				$state.go("myGames", response);
-			})
+		});
 	};
 
 });
