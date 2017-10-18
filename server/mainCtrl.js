@@ -40,14 +40,6 @@ module.exports = {
 			});
 	},
 
-	getUsername: (req, res, next) => {
-		req.app.get("db")
-			.get_username(req.params.id)
-			.then((username) => {
-				res.status("200").send(username);
-			});
-	},
-
 	getMyGames: (req, res, next) => {
 		req.app
 			.get("db")

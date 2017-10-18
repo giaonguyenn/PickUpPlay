@@ -11,7 +11,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
     	return $q((resolve, reject) => {
 	     	firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
 	            .then((response) => { 
-	            	console.log(response)
 	            	//Getting user by ID so it can be connected to whoever logs in
 	            	return $http.get("/users/getUserById/" + response.uid)
 	            		.then((response) => {
@@ -137,22 +136,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
    		})
    	};
 
-   	this.getUsername = (useruid) => {
-   		console.log(useruid)
-   		
-   		const results = useruid.map( user => {
-   			console.log(user)
-   			return $http
-   				.get("http://localhost:3000/user/username/" + user)
-   				.then((response) => {   
-   					console.log(response)
-   					return response.data[0].username	
-   				})
-   		})
-   		
-		return results;
-   	};
-
    	that.myGames = [];
 
    	this.getMyGames = (useruid) => {
@@ -160,7 +143,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
    			.get(`/user/myGames/${useruid}`)
    			.then((response) => {
    				that.myGames = response.data;
-   				console.log(that.myGames);
    				return response.data;
    			})
    	};
