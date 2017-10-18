@@ -8,25 +8,36 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 	this.user = {};
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
     this.signIn = (emailSignIn, passwordSignIn) => {
-        return firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
-            .then((response) => { 
-            	//Getting user by ID so it can be connected to whoever logs in
-            	return $http.get("/users/getUserById/" + response.uid)
-            		.then((response) => {
-            			this.user = response.data.pop();
-            		});
-            });
+    	return $q((resolve, reject) => {
+	     	firebase.auth().signInWithEmailAndPassword(emailSignIn, passwordSignIn)
+	            .then((response) => { 
+	            	console.log(response)
+	            	//Getting user by ID so it can be connected to whoever logs in
+	            	return $http.get("/users/getUserById/" + response.uid)
+	            		.then((response) => {
+	            			this.user = response.data.pop();
+	            			resolve();
+	            		});
+	            })
+	            .catch(err=>{
+	     			reject(err);
+	     		});	
+    	});
     };
 
 	//CREATING USER AND SENDING INFO TO DATABASE/FIREBASE
 	this.createUser = (firstname, email, lastname, username, password) => {
-		return $q((resolve) => {
-			firebase.auth().createUserWithEmailAndPassword(email, password).then((user) => {
-            	this.user = {"uid": user.uid, "firstname": firstname, "email": user.email, "lastname": lastname, "username": username, "password": password};
-				$http.post('/users/createUser', this.user);
-        		resolve();
-        		console.log(this.user);
-        	});	
+		return $q((resolve, reject) => {
+			firebase.auth().createUserWithEmailAndPassword(email, password)
+				.then((user) => {
+	            	this.user = {"uid": user.uid, "firstname": firstname, "email": user.email, "lastname": lastname, "username": username, "password": password};
+					$http.post('/users/createUser', this.user);
+	        		resolve();
+	        		console.log(this.user);
+        		})
+        		.catch((err) => {
+        			reject(err);
+        		});	
 		});
     };
     /* new Promise (resolve, reject){
@@ -127,12 +138,19 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
    	};
 
    	this.getUsername = (useruid) => {
-   		return $http
-   			.get(`http://localhost:3000/user/username/${useruid}`)
-   			.then((response) => {
-   				const results = response.data;
-   				return results;
-   			})
+   		console.log(useruid)
+   		
+   		const results = useruid.map( user => {
+   			console.log(user)
+   			return $http
+   				.get("http://localhost:3000/user/username/" + user)
+   				.then((response) => {   
+   					console.log(response)
+   					return response.data[0].username	
+   				})
+   		})
+   		
+		return results;
    	};
 
    	that.myGames = [];
