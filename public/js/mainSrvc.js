@@ -1,4 +1,4 @@
-angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
+angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) {
 
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
@@ -43,6 +43,46 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q) {
 		doo stuff here 
 	  		if good stuff resolve,
 	  		if bad stuff reject} */
+
+	this.submitImage = (image, uid) => {
+		let defer = $q.defer();
+		console.log(image);
+	    const storageRef = firebase.storage().ref();
+	    const uploadTask = storageRef.child("images/" + image.name).put(image);
+	    uploadTask.on("state_changed", (snapshot) => {
+	        const progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+	        console.log("Upload is " + progress + "% done");
+	        switch (snapshot.state) {
+	            case firebase.storage.TaskState.RUNNING: // or ‘running’
+	                console.log("Upload is running");
+	                    break;
+	            }
+	    }, 
+
+	    (error) => {
+
+	    }, 
+
+	    () => {
+	        let imageUrl = [uploadTask.snapshot.downloadURL, uid];
+	        console.log(imageUrl)
+	        return $http
+	        	.post(`/user/image`, imageUrl)
+	        	.then((response) => {
+	        		console.log(response);
+	        		let results = response.data[0].image;
+	        		console.log(results);
+	        		defer.resolve(results);
+	        	// 	$state.reload("editProfile");
+	        		return results;
+	        	// })
+	        	// .then((response) => {
+	        		// $state.reload("editProfile");
+	        		// res.json(response);
+	        	});
+	    });
+	    return defer.promise;
+	};
 
    	//PULLING GAMES FROM DATABASE FOR SPORTSVIEW PAGE
    	this.getSports = () => {

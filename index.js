@@ -27,6 +27,8 @@ const db = app.get("db");
 /////////////////Endpoints/////////////////
 app.post("/users/createUser", mainCtrl.createUser);
 
+app.post("/user/image", mainCtrl.submitImage);
+
 app.get("/users/getUserById/:id", mainCtrl.getUserById);
 
 app.get("/sportsView/allSports", mainCtrl.getSports);

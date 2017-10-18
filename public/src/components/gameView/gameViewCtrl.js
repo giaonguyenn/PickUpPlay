@@ -5,7 +5,7 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
 	$scope.place = mainSrvc.places.find( place => place.id === $stateParams.id);
 
 	$scope.createGame = function (uid, game, numberOfPlayers, time, courtid) {
-  		mainSrvc.createGame(uid, game, numberOfPlayers, time, courtid)
+        mainSrvc.createGame(uid, game, numberOfPlayers, time, courtid)
   			.then((response) => {
   				getCurrentGames();
   			});
@@ -21,10 +21,10 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   	};
 
   	$scope.getMyGames = (useruid) => {
-		mainSrvc.getMyGames(useruid)
-			.then((response) => {
-				$state.go("myGames", response);
-		});
-	};
+  		mainSrvc.getMyGames(useruid)
+  			.then((response) => {
+  				$state.go("myGames", response);
+  		});
+  	};
 
 });

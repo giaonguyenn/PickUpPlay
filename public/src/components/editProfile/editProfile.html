@@ -1,6 +1,15 @@
 <div class="profile-picture">
-	<h1>Profile Picture Placeholder</h1>
+	<form name="form">
+	    <img ngf-thumbnail="image || user.image">
+	    	<!-- <img src="{{user.image}}"/> -->
+	    <button name="image" ngf-select ng-model="image">Upload image</button>
+	    <button ng-click="submitImage(image, user.uid)">Submit</button>
+	</form>
+	
 </div>
+
+<!-- <img src="{{user.image}}"/> -->
+
 
 <div class="profile">
 	<p>{{user.firstname}} {{user.lastname}}</p>

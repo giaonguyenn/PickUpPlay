@@ -12,6 +12,17 @@ module.exports = {
 			});
 	},
 
+	submitImage: (req, res, next) => {
+		req.app.get("db")
+			.submit_image(req.body)
+			// .then((response) => {
+			// 	res.status("200").send(response);
+			// });
+			.then((response) =>{
+				res.json(response);
+			});
+	},
+
 	getSports: (req, res, next) => {
 		// const dbInstance = req.app.get("db");
 		// return dbInstance.get_sports()

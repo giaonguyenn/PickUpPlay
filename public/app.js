@@ -1,4 +1,4 @@
-angular.module("PickUpPlayApp", ["ui.router"])
+angular.module("PickUpPlayApp", ["ui.router", "ngFileUpload"])
 	.config(function($stateProvider, $urlRouterProvider) {
 		$urlRouterProvider.otherwise("/");
 
