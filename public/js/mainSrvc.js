@@ -114,57 +114,77 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        service = new google.maps.places.PlacesService(map);
-				service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 20000}, callback);
-				service.nearbySearch({location: pyrmont, keyword: "biking trail", radius: 20000}, callback);
-				service.nearbySearch({location: pyrmont, keyword: "disc golf", radius: 20000}, callback);
-				service.nearbySearch({location: pyrmont, keyword: "recreation park", radius: 20000}, callback);
-				service.nearbySearch({location: pyrmont, keyword: "tennis courts", radius: 20000}, callback);
-				service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 20000}, callback);
-				// console.log(s)
+				service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "basketball courts")
+					});
+				service.nearbySearch({location: pyrmont, keyword: "biking trail", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "biking trail")
+					});
+				service.nearbySearch({location: pyrmont, keyword: "disc golf", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "disc golf")
+					});
+				service.nearbySearch({location: pyrmont, keyword: "recreation park", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "recreation park")
+					});
+				service.nearbySearch({location: pyrmont, keyword: "tennis courts", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "tennis courts")
+					});
+				service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 20000}, 
+					(results, status) => {
+						callback(results, status, "volleyball courts")
+					});
 		    };
 
-		    function callback (results, status) {
+		    function callback (results, status, keyword) {
 		        if (status === google.maps.places.PlacesServiceStatus.OK) {
 		        	for (var i = 0; i < results.length; i++) {
-		           		createMarker(results[i]);
+		           		createMarker(results[i], keyword);
 		          	}
 		        }
 		    };
 
-	      	function createMarker (place) {
+	      	function createMarker (place, keyword) {
 	      		// placeLoc is pulling in coordinates for location that user inputs
+	      		// console.log("init map keywords", initMap)
+
+	      		console.log(keyword);
 
 	      		that.places.push(place);
 
 	        	var placeLoc = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
 
-	        	// var icon = "";
-	        	// switch(data.type) {
-	        	// 	case "basketball courts":
-	        	// 		icon = "orange";
-	        	// 		break;
-	        	// 	case "biking trail":
-	        	// 		icon = "paleblue";
-	        	// 		break;
-	        	// 	case "disc golf":
-	        	// 		icon = "pink";
-	        	// 		break;
-	        	// 	case "recreation park":
-	        	// 		icon = "blue";
-	        	// 		break;
-	        	// 	case "tennis courts":
-	        	// 		icon = "green";
-	        	// 		break;
-	        	// 	case "volleyball courts":
-	        	// 		icon = "purple";
-	        	// 		break;
-	        	// }
-	        	// icon = "http://maps.google.com/mapfiles/ms/icons/" + icon + "-dot.png";
+	        	var icon = "";
+	        	switch(keyword) {
+	        		case "basketball courts":
+	        			icon = "orange";
+	        			break;
+	        		case "biking trail":
+	        			icon = "yellow";
+	        			break;
+	        		case "disc golf":
+	        			icon = "pink";
+	        			break;
+	        		case "recreation park":
+	        			icon = "blue";
+	        			break;
+	        		case "tennis courts":
+	        			icon = "green";
+	        			break;
+	        		case "volleyball courts":
+	        			icon = "purple";
+	        			break;
+	        	}
+	        	icon = "http://maps.google.com/mapfiles/ms/icons/" + icon + "-dot.png";
 
 	        	var marker = new google.maps.Marker({
 	          		map: map,
 	          		position: placeLoc,
-	          		icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+	          		icon: icon,
 	          		animation: google.maps.Animation.DROP
 	        	});
 
