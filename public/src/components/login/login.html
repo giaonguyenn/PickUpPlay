@@ -1,27 +1,32 @@
-<div class="logo">
-    <img src="https://www.bls.gov/spotlight/2017/sports-and-exercise/images/cover_image.jpg"/>
-	<h1>Pick-Up Play</h1>
-</div>
-	<br>
-
-<form class="h5 text-center mb-4">
-    <div class="md-form">
-        <i class="fa fa-envelope prefix grey-text"></i>
-        <input type="text" id="defaultForm-email" class="form-control" ng-model="emailSignIn" placeholder="Email Address">
+<img src="src/images/login_page_hero_image.jpeg" class="bg-image"/>
+     <!-- <img src="https://www.bls.gov/spotlight/2017/sports-and-exercise/images/cover_image.jpg"/>
+	<h1>Pick-Up Play</h1> -->
+<div class="logo-container">
+    <div class="logo-container1">
+        <img id="logo" src="src/images/logo.png"/>
     </div>
-    <div class="md-form">
-        <i class="fa fa-lock prefix grey-text"></i>
-        <input type="password" id="defaultForm-pass" class="form-control" ng-model="passwordSignIn" placeholder="Password">
-    </div>
-    <div class="text-center">
-        <button class="btn btn-default" ng-click="signIn(emailSignIn,passwordSignIn)">Login</button>
-    </div>
-</form>
-
-    </br>
-
-<div>
-    <p> Not a Member? </p>
 </div>
 
-<button type="button" id="signup-button" ui-sref="signUp">Sign Up Now!</button>
+<div class="input-field">
+    <form class="h5 text-center mb-4">
+        <div class="md-form">
+            <i class="fa fa-envelope prefix grey-text"></i>
+            <input type="text" id="defaultForm-email" class="form-control" ng-model="emailSignIn" placeholder="Email Address">
+        </div>
+        <div class="md-form">
+            <i class="fa fa-lock prefix grey-text"></i>
+            <input type="password" id="defaultForm-pass" class="form-control" ng-model="passwordSignIn" placeholder="Password">
+        </div>
+        <div class="text-center">
+            <button class="btn btn-default" ng-click="signIn(emailSignIn,passwordSignIn)">Login</button>
+        </div>
+    </form>
+
+        </br>
+
+    <div class="not-a-member">
+        <p> Not a Member? </p>
+    </div>
+
+    <button type="button" id="signup-button" ui-sref="signUp">Sign Up Now!</button>
+</div>

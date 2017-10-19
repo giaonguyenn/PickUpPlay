@@ -1,19 +1,68 @@
-.logo {
+img.bg-image {
+  /* Set rules to fill background */
+  min-height: 100%;
+  min-width: 1024px;
+	
+  /* Set up proportionate scaling */
+  width: 100%;
+  height: auto;
+	
+  /* Set up positioning */
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -10;
+}
+
+@media screen and (max-width: 1024px) { /* Specific to this particular image */
+  img.bg-image {
+    left: 50%;
+    margin-left: -512px;   /* 50% */
+  }
+}
+
+.logo-container {
+	position: relative;
+  	text-align: center;
+  	width: 100%;
+  	height: 0;
+  	padding-bottom: 73%;
+  	margin-bottom: 64px;
+}
+
+#logo {
+	display: block;
+	margin: 0 auto;
+	margin-top: 10%;
+	width: auto;
+	z-index: 10;
+ 	max-width: 100%;
+  	height: auto;
+  	max-height: 180%;
+  	vertical-align: middle;
+}
+
+.logo-container1 {
+  	position: absolute;
+  	width: 100%;
+  	height: 15%;
+ 	font-size: 0;
+}
+
+.logo-container1:before {
+  	content: "";
+  	display: inline-block;
+  	height: 100%;
+  	vertical-align: middle;
+}
+
+.input-field {
 	width: 100%;
 	position: relative;
+	text-align: center;
 }
 
-.logo img {
-	width: 70%;
-	margin-left: 15%;
-}
-
-.logo h1 {
-	position: absolute;
-	top: 30%;
-	left: 24%;
-	width: 100%;
-	color: white;
-	font-size: 2.575em;
-	text-shadow: 2px 2px black;
+.h5 .not-a-member .signup-button {
+	display: block;
+	margin: 0 auto;
 }

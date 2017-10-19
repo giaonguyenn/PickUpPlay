@@ -46,7 +46,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
 	this.submitImage = (image, uid) => {
 		let defer = $q.defer();
-		console.log(image);
 	    const storageRef = firebase.storage().ref();
 	    const uploadTask = storageRef.child("images/" + image.name).put(image);
 	    uploadTask.on("state_changed", (snapshot) => {
@@ -65,20 +64,12 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
 	    () => {
 	        let imageUrl = [uploadTask.snapshot.downloadURL, uid];
-	        console.log(imageUrl)
 	        return $http
 	        	.post(`/user/image`, imageUrl)
 	        	.then((response) => {
-	        		console.log(response);
 	        		let results = response.data[0].image;
-	        		console.log(results);
 	        		defer.resolve(results);
-	        	// 	$state.reload("editProfile");
 	        		return results;
-	        	// })
-	        	// .then((response) => {
-	        		// $state.reload("editProfile");
-	        		// res.json(response);
 	        	});
 	    });
 	    return defer.promise;
@@ -114,7 +105,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 			function initMap () {
 				var location = object;
 		        map = new google.maps.Map(document.getElementById("map"), {
-		          	zoom: 11,
+		          	zoom: 12,
 		          	center: location
 		        });
 		        var marker = new google.maps.Marker({
@@ -122,9 +113,14 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 		          	map: map
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
-		        	service = new google.maps.places.PlacesService(map);
-					service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 10000}, callback
-				);
+		        service = new google.maps.places.PlacesService(map);
+				service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 20000}, callback);
+				service.nearbySearch({location: pyrmont, keyword: "biking trail", radius: 20000}, callback);
+				service.nearbySearch({location: pyrmont, keyword: "disc golf", radius: 20000}, callback);
+				service.nearbySearch({location: pyrmont, keyword: "recreation park", radius: 20000}, callback);
+				service.nearbySearch({location: pyrmont, keyword: "tennis courts", radius: 20000}, callback);
+				service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 20000}, callback);
+				// console.log(s)
 		    };
 
 		    function callback (results, status) {
@@ -142,9 +138,34 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
 	        	var placeLoc = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
 
+	        	// var icon = "";
+	        	// switch(data.type) {
+	        	// 	case "basketball courts":
+	        	// 		icon = "orange";
+	        	// 		break;
+	        	// 	case "biking trail":
+	        	// 		icon = "paleblue";
+	        	// 		break;
+	        	// 	case "disc golf":
+	        	// 		icon = "pink";
+	        	// 		break;
+	        	// 	case "recreation park":
+	        	// 		icon = "blue";
+	        	// 		break;
+	        	// 	case "tennis courts":
+	        	// 		icon = "green";
+	        	// 		break;
+	        	// 	case "volleyball courts":
+	        	// 		icon = "purple";
+	        	// 		break;
+	        	// }
+	        	// icon = "http://maps.google.com/mapfiles/ms/icons/" + icon + "-dot.png";
+
 	        	var marker = new google.maps.Marker({
 	          		map: map,
-	          		position: placeLoc
+	          		position: placeLoc,
+	          		icon: 'http://maps.google.com/mapfiles/ms/icons/green-dot.png',
+	          		animation: google.maps.Animation.DROP
 	        	});
 
 				var contentString = place.name + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> __ games currently in session</p><br/>" + "<p>Create game</p>" +
