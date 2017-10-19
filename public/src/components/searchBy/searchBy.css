@@ -7,26 +7,11 @@
 	float: right;
 }
 
-.container {
+.search-by-location {
 	width: 100%;
 	height: 90%;
-	display: flex;
 }
 
-.searchByLocation {
-	width: 50%;
-	height: 100vh;
-	border: 1px solid black;
-	background-color: red;
-}
-
-.searchbyAddress {
+sports-view {
 	display: none;
-}
-
-.searchBySports {
-	width: 50%;
-	height: 100vh;
-	border: 1px solid black;
-	background-color: blue;
 }

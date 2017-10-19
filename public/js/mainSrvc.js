@@ -84,11 +84,11 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
    			return results;
    		})
    	};
+
+   	this.showSportsView = () => {
+		$("sports-view").css("display", "initial");
+   	};
 	
-	//SEARCHING FOR SPORTS BY ADDRESS
-	this.searchAddress = function() {
-		$(".searchbyAddress").css("display", "initial");
-	};
 	
 	that.places = [];
 
@@ -114,6 +114,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        service = new google.maps.places.PlacesService(map);
+		        //pull functions out and make their own at the bottom of the service, put an if statement here to check the value and run the necessary function
 				service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 20000}, 
 					(results, status) => {
 						callback(results, status, "basketball courts")
@@ -151,8 +152,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	      	function createMarker (place, keyword) {
 	      		// placeLoc is pulling in coordinates for location that user inputs
 	      		// console.log("init map keywords", initMap)
-
-	      		console.log(keyword);
 
 	      		that.places.push(place);
 

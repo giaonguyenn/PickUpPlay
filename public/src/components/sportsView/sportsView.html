@@ -1,6 +1,10 @@
-<h1>SPORTS VIEW</h1>
+<div class="all-sports" ui-sref="mapView({zip:address || zipcode})">
+	<h1>All Sports</h1>
+</div>
 
-<div ng-repeat="sport in sports">
-	<p>{{sport.name}}</p>
-	<p>{{sport.minimum_players}}</p>
+<div class="sports-container">
+	<div class="sports" ng-repeat="sport in sports" ng-click="">
+		<p>{{sport.name}}</p>
+		<p>{{sport.minimum_players}}</p>
+	</div>
 </div>

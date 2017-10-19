@@ -1,0 +1,15 @@
+.all-sports {
+	margin-top: 5%;
+}
+
+.sports-container {
+	width: 100%;
+	position: relative;
+}
+
+.sports {
+	display: inline-block;
+	width: 30%;
+	border: 1px solid black;
+	margin: 10%;
+}
