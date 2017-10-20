@@ -11,20 +11,20 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   			});
   	};
 
-  	getCurrentGames();
+  getCurrentGames();
 
-  	function getCurrentGames() {
-  		mainSrvc.getCurrentGames($stateParams.id)
-  		.then((response) => {
-  			$scope.currentgames = response;
-  		});
-  	};
+  function getCurrentGames() {
+    mainSrvc.getCurrentGames($stateParams.id)
+    .then((response) => {
+      $scope.currentgames = response;
+    });
+  };
 
-  	$scope.getMyGames = (useruid) => {
-  		mainSrvc.getMyGames(useruid)
-  			.then((response) => {
-  				$state.go("myGames", response);
-  		});
-  	};
+  $scope.getMyGames = (useruid) => {
+    mainSrvc.getMyGames(useruid)
+    	.then((response) => {
+        $state.go("myGames", response);
+    });
+  };
 
 });

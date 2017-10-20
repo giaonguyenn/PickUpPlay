@@ -24,14 +24,13 @@ angular.module("PickUpPlayApp", ["ui.router", "ngFileUpload"])
 				controller: "searchByCtrl"
 			})
 			.state("mapView", {
-				url:"/mapView/:zip",
+				url:"/mapView/:zip/:searchTerm",
 				templateUrl: "src/components/mapView/mapView.html",
 				controller: "mapViewCtrl"
 			})
 			.state("sportsView", {
 				url:"/sportsView",
-				templateUrl: "src/components/sportsView/sportsView.html",
-				controller: "sportsViewCtrl"
+				templateUrl: "src/components/sportsView/sportsView.html"
 			})
 			.state("gameView", {
 				url:"/gameView/:id",

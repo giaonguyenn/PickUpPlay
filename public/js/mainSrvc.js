@@ -3,7 +3,11 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	var baseUrl = "https://maps.googleapis.com/maps/api/geocode/json?address="
 	var apiKey = "AIzaSyDx3NmAEho6hkw_NSTWBZU3EFadH87jxRs";
 	var map;
+
 	var that = this;
+	that.places = [];
+
+	var searchTerms = [];
 
 	this.user = {};
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
@@ -80,6 +84,9 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
    		return $http
    			.get("http://localhost:3000/sportsView/allSports")
    			.then((response) => {
+   				searchTerms = response.data.map(sport => {
+   					return sport.search_term;
+   				})
    			const results = response.data;
    			return results;
    		})
@@ -88,12 +95,9 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
    	this.showSportsView = () => {
 		$("sports-view").css("display", "initial");
    	};
-	
-	
-	that.places = [];
 
 	//GETTING MAP BY USING ADDRESS THAT USER INPUTS
-	this.getMapByAddress = function(address) {
+	this.getMapByAddress = function(address, searchTerm) {
 		return $http
 		.get(baseUrl + address + "&key=" + apiKey)
 		.then((response) => {
@@ -114,31 +118,30 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        service = new google.maps.places.PlacesService(map);
-		        //pull functions out and make their own at the bottom of the service, put an if statement here to check the value and run the necessary function
-				service.nearbySearch({location: pyrmont, keyword: "basketball courts", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "basketball courts")
-					});
-				service.nearbySearch({location: pyrmont, keyword: "biking trail", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "biking trail")
-					});
-				service.nearbySearch({location: pyrmont, keyword: "disc golf", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "disc golf")
-					});
-				service.nearbySearch({location: pyrmont, keyword: "recreation park", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "recreation park")
-					});
-				service.nearbySearch({location: pyrmont, keyword: "tennis courts", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "tennis courts")
-					});
-				service.nearbySearch({location: pyrmont, keyword: "volleyball courts", radius: 20000}, 
-					(results, status) => {
-						callback(results, status, "volleyball courts")
-					});
+		     
+		        if(searchTerm == "all-sports") {
+		        	searchTerms.forEach(term => {
+						service.nearbySearch(
+							{
+								location: pyrmont, 
+								keyword: term, 
+								radius: 20000
+							}, 
+							(results, status) => {
+								callback(results, status, term)
+							});
+		        	})
+		        } else {
+					service.nearbySearch(
+						{
+							location: pyrmont, 
+							keyword: searchTerm, 
+							radius: 20000
+						}, 
+						(results, status) => {
+							callback(results, status, searchTerm)
+						});
+					}
 		    };
 
 		    function callback (results, status, keyword) {
@@ -150,8 +153,6 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 		    };
 
 	      	function createMarker (place, keyword) {
-	      		// placeLoc is pulling in coordinates for location that user inputs
-	      		// console.log("init map keywords", initMap)
 
 	      		that.places.push(place);
 
@@ -160,25 +161,24 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	        	var icon = "";
 	        	switch(keyword) {
 	        		case "basketball courts":
-	        			icon = "orange";
+	        			icon = "./src/images/basketballIcon.png";
 	        			break;
 	        		case "biking trail":
-	        			icon = "yellow";
+	        			icon = "./src/images/bikingIcon.png";
 	        			break;
 	        		case "disc golf":
-	        			icon = "pink";
+	        			icon = "./src/images/frisbeeIcon.png";
 	        			break;
 	        		case "recreation park":
-	        			icon = "blue";
+	        			icon = "./src/images/soccerFootballIcon.png";
 	        			break;
 	        		case "tennis courts":
-	        			icon = "green";
+	        			icon = "./src/images/tennisIcon.png";
 	        			break;
 	        		case "volleyball courts":
-	        			icon = "purple";
+	        			icon = "./src/images/volleyballIcon.png";
 	        			break;
 	        	}
-	        	icon = "http://maps.google.com/mapfiles/ms/icons/" + icon + "-dot.png";
 
 	        	var marker = new google.maps.Marker({
 	          		map: map,

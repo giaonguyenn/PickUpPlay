@@ -1,9 +1,9 @@
-<div class="all-sports" ui-sref="mapView({zip:address || zipcode})">
+<div class="all-sports" ui-sref="mapView({zip:address || zipcode, searchTerm: 'all-sports'})">
 	<h1>All Sports</h1>
 </div>
 
 <div class="sports-container">
-	<div class="sports" ng-repeat="sport in sports" ng-click="">
+	<div class="sports" ng-repeat="sport in sports" ui-sref="mapView({zip:address || zipcode, searchTerm: sport.search_term})">
 		<p>{{sport.name}}</p>
 		<p>{{sport.minimum_players}}</p>
 	</div>

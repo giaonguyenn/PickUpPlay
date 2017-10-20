@@ -56,6 +56,18 @@ img.bg-image {
   vertical-align: middle;
 }
 
+.form-control {
+  width: 70%;
+  margin: 0 auto;
+}
+
+.btn-outline-dark {
+  color: #495057;
+  background-color: rgba(255, 255, 255, 0.6);
+  background-image: none;
+  border-color: white;
+}
+
 .input-field {
 	width: 100%;
 	position: relative;
@@ -65,4 +77,9 @@ img.bg-image {
 .h5 .not-a-member .signup-button {
 	display: block;
 	margin: 0 auto;
+}
+
+.not-a-member p{
+  color: white;
+  font: 3.5em;
 }

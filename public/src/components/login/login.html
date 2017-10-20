@@ -1,6 +1,5 @@
 <img src="src/images/login_page_hero_image.jpeg" class="bg-image"/>
-     <!-- <img src="https://www.bls.gov/spotlight/2017/sports-and-exercise/images/cover_image.jpg"/>
-	<h1>Pick-Up Play</h1> -->
+
 <div class="logo-container">
     <div class="logo-container1">
         <img id="logo" src="src/images/logo.png"/>
@@ -18,7 +17,7 @@
             <input type="password" id="defaultForm-pass" class="form-control" ng-model="passwordSignIn" placeholder="Password">
         </div>
         <div class="text-center">
-            <button class="btn btn-default" ng-click="signIn(emailSignIn,passwordSignIn)">Login</button>
+            <button type="button" class="btn btn-outline-dark" ng-click="signIn(emailSignIn,passwordSignIn)">Login</button>
         </div>
     </form>
 
@@ -28,5 +27,5 @@
         <p> Not a Member? </p>
     </div>
 
-    <button type="button" id="signup-button" ui-sref="signUp">Sign Up Now!</button>
+    <button type="button" class="btn btn-outline-dark" id="signup-button" ui-sref="signUp">Sign Up Now!</button>
 </div>
