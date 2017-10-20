@@ -1,15 +1,16 @@
-.navbar {
-	width: 100%;
-	height: 7%;
-}
-
-.navbar a {
-	float: right;
+body {
+	background-image: url("../../images/soccer_field.jpeg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
 }
 
 .search-by-location {
 	width: 100%;
-	height: 90%;
+	padding-top: 15%;
+	overflow: hidden;
 }
 
 sports-view {

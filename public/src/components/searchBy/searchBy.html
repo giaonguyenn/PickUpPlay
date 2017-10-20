@@ -1,11 +1,13 @@
-<div class="navbar">
-	<a ui-sref="editProfile">Profile</a>
-</div>
+<body>
 
-<div class="search-by-location">
-	<input type="text" id="address" ng-model="address" ng-disable="zipcode" placeholder="Address / City">
-	<input type="text" id="zipcode" ng-model="zipcode" ng-disable="address" placeholder="Zip Code">
-	<button type="button" id="submitAddressButton" ng-click="showSportsView(address || zipcode)">Next</button>
+	<navbar></navbar>
 
-	<sports-view></sports-view>
-</div>
+	<div class="search-by-location">
+		<input type="text" id="address" ng-model="address" ng-disable="zipcode" placeholder="Address / City">
+		<input type="text" id="zipcode" ng-model="zipcode" ng-disable="address" placeholder="Zip Code">
+		<button type="button" id="submitAddressButton" ng-click="showSportsView(address || zipcode)">Next</button>
+
+		<sports-view></sports-view>
+	</div>
+
+</body>

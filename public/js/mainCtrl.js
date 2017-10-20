@@ -7,15 +7,21 @@ angular.module("PickUpPlayApp").controller("mainCtrl", function($scope, mainSrvc
   	})
     .catch((err) => {
       alert(err);
-  	});
+      'use strict';
+
+      window.addEventListener('load', function() {
+        var form = document.getElementById('needs-validation');
+        form.addEventListener('submit', function(event) {
+          if (form.checkValidity() === false) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      }, false);
+    });
   };
 
-  // $scope.searchAddress = mainSrvc.searchAddress;
-
   $scope.signOut = mainSrvc.signOut;
-
-  // $scope.createGame = function (game, numberOfPlayers, time) {
-  // 	mainSrvc.createGame(game, numberOfPlayers, time);
-  // };
 
 });
