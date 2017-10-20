@@ -1,9 +1,12 @@
 angular.module("PickUpPlayApp").controller("mainCtrl", function($scope, mainSrvc, $state) {
 
+  angular.element(document).ready(function(){
+    $("navbar").css("display", "none");
+  });
+
   $scope.signIn = function (emailSignIn,passwordSignIn) {
   mainSrvc.signIn(emailSignIn,passwordSignIn)
     .then((response) => {
-      $("navbar").css("display", "initial");
       $state.go("searchBy");
   	})
     .catch((err) => {

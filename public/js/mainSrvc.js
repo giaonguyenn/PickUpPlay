@@ -108,17 +108,30 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
 			function initMap () {
 				var location = object;
+
+				var styledMapType = new google.maps.StyledMapType(
+            		[{"featureType":"landscape","stylers":[{"hue":"#F1FF00"},{"saturation":-27.4},{"lightness":9.4},{"gamma":1}]},{"featureType":"road.highway","stylers":[{"hue":"#0099FF"},{"saturation":-20},{"lightness":36.4},{"gamma":1}]},{"featureType":"road.arterial","stylers":[{"hue":"#00FF4F"},{"saturation":0},{"lightness":0},{"gamma":1}]},{"featureType":"road.local","stylers":[{"hue":"#FFB300"},{"saturation":-38},{"lightness":11.2},{"gamma":1}]},{"featureType":"water","stylers":[{"hue":"#00B6FF"},{"saturation":4.2},{"lightness":-63.4},{"gamma":1}]},{"featureType":"poi","stylers":[{"hue":"#9FFF00"},{"saturation":0},{"lightness":0},{"gamma":1}]}],
+            		{name: 'Styled Map'}
+            	);
 		        map = new google.maps.Map(document.getElementById("map"), {
 		          	zoom: 12,
-		          	center: location
+		          	center: location,
+		          	mapTypeControlOptions: {
+			            mapTypeIds: ['roadmap', 'satellite', 'hybrid', 'terrain',
+			                    'styled_map']
+			        }
 		        });
+
+		        map.mapTypes.set('styled_map', styledMapType);
+        		map.setMapTypeId('styled_map');
+        		
 		        var marker = new google.maps.Marker({
 		          	position: location,
-		          	map: map
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        service = new google.maps.places.PlacesService(map);
 		     
+				//loops through and places different icons depending on searchTerm		     
 		        if(searchTerm == "all-sports") {
 		        	searchTerms.forEach(term => {
 						service.nearbySearch(

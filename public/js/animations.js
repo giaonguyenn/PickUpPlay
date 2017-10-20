@@ -1,16 +1,3 @@
-$(document).ready(function(){
-
-	(function($) {
-
-		$('.responsiveIcon').click(function(e){
-			e.preventDefault();
-			$('body').toggleClass('with--sidebar');
-		});
-    
-    $('#site-cache').click(function(e){
-      $('body').removeClass('with--sidebar');
-    });
-
-	})(jQuery);
-
-});
+// angular.element(document).ready(function(){
+// 	$("navbar").css("display", "none");
+// });

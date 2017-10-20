@@ -1,5 +1,9 @@
 angular.module("PickUpPlayApp").controller("searchByCtrl", function($scope, mainSrvc, $state) {
 
+	angular.element(document).ready(function(){
+	  $("navbar").css("display", "initial");
+	});
+
   	$scope.showSportsView = (address) => {
   		if(!address) {
   			alert ("Please enter Address, City or Zip Code.")
