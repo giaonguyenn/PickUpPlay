@@ -1,11 +1,18 @@
 const express = require("express");
 const {json} = require("body-parser");
 const massive = require("massive"); //takes your db and allows you to handle sql calls 
-const {dbUser, dbPass, database, domain, clientID, clientSecret, secret} = require("./server/config.js");
+const dbUser = process.env.dbUser;
+const dbPass = process.env.dbPass;
+const database = process.env.database;
+const domain = process.env.domain;
+const clientID = process.env.clientID;
+const clientSecret = process.env.clientSecret;
+const secret = process.env.secret;
 const session = require("express-session"); //saves users' id to a cookie
 
 const mainCtrl = require("./server/mainCtrl.js");
 
+require('dotenv').config();
 const app = express();
 
 const port = 3000;
