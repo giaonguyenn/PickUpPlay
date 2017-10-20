@@ -1,0 +1,26 @@
+/*#soccer_field {
+	background-image: url("../../images/soccer_field.jpeg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	min-height: 100vh;
+}*/
+
+.back-button {
+	color: white;
+	padding: 3%;
+}
+
+#back {
+	font-size: 1.25em;
+}
+
+h1 {
+	color: white;
+}
+
+.privacy-disclaimer {
+	color: white;
+}

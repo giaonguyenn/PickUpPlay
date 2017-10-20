@@ -1,11 +1,11 @@
-body {
+/*#soccer_field {
 	background-image: url("../../images/soccer_field.jpeg");
 	background-position: center center;
 	background-repeat: no-repeat;
 	background-attachment: fixed;
 	background-size: cover;
 	background-color: #464646;
-}
+}*/
 
 .search-by-location {
 	width: 100%;

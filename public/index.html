@@ -9,7 +9,9 @@
 
     <!--STYLESHEETS-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+
     <link rel="stylesheet" href="mainStyle.css">
+    <link rel="stylesheet" href="src/components/signUp/signUp.css">
     <link rel="stylesheet" href="src/components/login/login.css">
     <link rel="stylesheet" href="src/components/navbar/navbar.css">
     <link rel="stylesheet" href="src/components/editProfile/editProfile.css">
@@ -22,6 +24,9 @@
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-auth.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-storage.js"></script>
+
+    <!--FONTAWESOME ICON-->
+    <script src="https://use.fontawesome.com/c9ffce4e95.js"></script>
 
     <!--INITIALIZE FIREBASE-->
     <script>
@@ -38,9 +43,8 @@
 </head>
 
 <body ng-controller="mainCtrl">
+    <navbar></navbar>
 	<ui-view></ui-view>
-
-    <a ui-sref="mapView"></a>
 
     <!--BOOTSTRAP JS PLUGINS-->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
