@@ -1,14 +1,30 @@
+#soccer_field_overlay {
+	background-image: url("/src/images/soccer_field_overlay.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	background-color: #464646;
+	min-height: 100vh;
+}
+
 .back-button {
 	color: white;
-	padding: 3%;
+	padding: 3% 3%;
 }
 
 #back {
 	font-size: 1.25em;
 }
 
-h1 {
+.smaller-logo-container {
+	/*height: 100px;*/
+	text-align: center;
+}
+
+.sign-up-header {
 	color: white;
+	text-align: center;
 }
 
 .privacy-disclaimer {
