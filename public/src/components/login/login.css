@@ -21,32 +21,25 @@ img.bg-image {
   }
 }
 
+.login-container {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 .logo-container {
-	position: relative;
   text-align: center;
   width: 100%;
-  height: 0;
-  padding-bottom: 73%;
-  margin-bottom: 64px;
 }
 
 #logo {
 	display: block;
 	margin: 0 auto;
-	margin-top: 10%;
-	width: auto;
+	width: 60%;
 	z-index: 10;
  	max-width: 100%;
-  height: auto;
-  max-height: 195%;
   vertical-align: middle;
-}
-
-.logo-container1 {
-  position: absolute;
-  width: 100%;
-  height: 15%;
- 	font-size: 0;
 }
 
 .logo-container1:before {
@@ -54,6 +47,10 @@ img.bg-image {
   display: inline-block;
   height: 100%;
   vertical-align: middle;
+}
+
+.app-overview {
+  height: 250px;
 }
 
 .form-control {
@@ -76,12 +73,10 @@ img.bg-image {
 	text-align: center;
 }
 
-.h5 .not-a-member .signup-button {
-	display: block;
-	margin: 0 auto;
+#signup-button {
+	margin-top: 5px;
 }
 
 .not-a-member p{
   color: white;
-  font: 3.5em;
 }

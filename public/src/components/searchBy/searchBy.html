@@ -1,8 +1,8 @@
 <div id="soccer_field">
 
 	<div class="search-by-location">
-		<input type="text" id="address" ng-model="address" ng-disable="zipcode" placeholder="Address / City">
-		<input type="text" id="zipcode" ng-model="zipcode" ng-disable="address" placeholder="Zip Code">
+		<input type="text" id="address" class="form-control" ng-model="address" ng-disable="zipcode" placeholder="Address / City">
+		<input type="text" id="zipcode" class="form-control" ng-model="zipcode" ng-disable="address" placeholder="Zip Code">
 		<button type="button" id="submitAddressButton" ng-click="showSportsView(address || zipcode)">Next</button>
 
 		<sports-view></sports-view>

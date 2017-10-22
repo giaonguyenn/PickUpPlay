@@ -6,11 +6,16 @@
 	background-size: cover;
 	background-color: #464646;
 	min-height: 100vh;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
 }
 
 .back-button {
 	color: white;
-	padding: 3% 3%;
+	padding: 1%;
+	position: fixed;
+	top: 1%;
 }
 
 #back {
@@ -18,8 +23,11 @@
 }
 
 .smaller-logo-container {
-	/*height: 100px;*/
 	text-align: center;
+}
+
+#smaller-logo {
+  width: 40%;
 }
 
 .sign-up-header {
@@ -28,5 +36,88 @@
 }
 
 .privacy-disclaimer {
+	text-align: center;
 	color: white;
+	width: 100%;
+}
+
+.privacy-disclaimer p {
+	max-width: 55%;
+	margin: 0 auto;
+}
+
+/*INPUT STYLING*/
+
+form {
+  text-align: center;
+  margin-top: 2%;
+}
+
+label {
+  display: block;
+  letter-spacing: 4px;
+  text-align: center;
+}
+label .label-text {
+  color: white;
+  cursor: text;
+  font-size: 1em;
+  line-height: 1em;
+  text-transform: uppercase;
+  -moz-transform: translateY(-24px);
+  -ms-transform: translateY(-24px);
+  -webkit-transform: translateY(-24px);
+  transform: translateY(-24px);
+  transition: all 0.3s;
+}
+label input {
+  background-color: transparent;
+  border: 0;
+  border-bottom: 2px solid white;
+  color: white;
+  font-size: 1.75em;
+  letter-spacing: -1px;
+  outline: 0;
+  padding: 5px 10px;
+  text-align: center;
+  transition: all 0.3s;
+  width: 33%;
+  min-width: 30%;
+}
+label input:focus {
+  max-width: 100%;
+  width: 45%;
+}
+label input:focus + .label-text {
+  color: #F0F0F0;
+  font-size: 1em;
+  -moz-transform: translateY(-48px);
+  -ms-transform: translateY(-48px);
+  -webkit-transform: translateY(-48px);
+  transform: translateY(-48px);
+}
+label input:valid + .label-text {
+  font-size: 1em;
+  -moz-transform: translateY(-54px);
+  -ms-transform: translateY(-54px);
+  -webkit-transform: translateY(-54px);
+  transform: translateY(-54px);
+}
+
+button {
+  background-color: #333333;
+  border: 1px solid white;
+  border-radius: 27px;
+  color: white;
+  cursor: pointer;
+  font-size: 1em;
+  margin-top: 20px;
+  padding: 5px 10px;
+  text-transform: uppercase;
+  transition: all 200ms;
+}
+button:hover, button:focus {
+  background-color: white;
+  color: #333333;
+  outline: 0;
 }

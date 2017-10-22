@@ -5,43 +5,37 @@
     </a>
 
     <div class="smaller-logo-container">
-        <!-- <div class="smaller-logo-container1"> -->
             <img id="smaller-logo" src="src/images/logo.png"/>
-        <!-- </div> -->
+    </div>
+ 
+    <form>
+        <label>
+            <input type="text" ng-model="firstname" required />
+            <div class="label-text"><i class="fa fa-user prefix grey-text"></i>  First name</div>
+        </label>
+        <label>
+            <input type="text" ng-model="lastname" required />
+            <div class="label-text"><i class="fa fa-user prefix grey-text"></i>  Last name</div>
+        </label>
+        <label>
+            <input type="text" ng-model="email" required />
+            <div class="label-text"><i class="fa fa-envelope prefix grey-text"></i> Email Address</div>
+        </label>
+        <label>
+            <input type="text" ng-model="username" required />
+            <div class="label-text"><i class="fa fa-user prefix grey-text"></i>  Username</div>
+        </label>
+        <label>
+            <input type="password" ng-model="password" required />
+            <div class="label-text"><i class="fa fa-lock prefix grey-text"></i>  Password (6 char min)</div>
+        </label>
+
+    <div class="privacy-disclaimer">
+        <p> By joining Pick-Up Play you are agreeing to our Privacy Policy &#38; Terms of Use. </p>
     </div>
 
-    <h1 class="sign-up-header">Create Your Account</h1> 
-
-    <form class="h5 text-center mb-4">
-        <div class="md-form">
-            <i class="fa fa-user prefix grey-text"></i>
-            <input type="text" id="orangeForm-name" class="form-control" ng-model="firstname" placeholder="First Name">
-        </div>
-        <div class="md-form">
-            <i class="fa fa-user prefix grey-text"></i>
-            <input type="text" id="orangeForm-name" class="form-control" ng-model="lastname" placeholder="Last Name">
-        </div>
-        <div class="md-form">
-            <i class="fa fa-envelope prefix grey-text"></i>
-            <input type="text" id="orangeForm-email" class="form-control" ng-model="email" placeholder="Email Address">
-        </div>
-        <div class="md-form">
-            <i class="fa fa-user prefix grey-text"></i>
-            <input type="text" id="orangeForm-username" class="form-control" ng-model="username" placeholder="Username">
-        </div>
-        <div class="md-form">
-            <i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="orangeForm-pass" class="form-control" ng-model="password" placeholder="Password">
-        </div>
-    <!--     <div class="md-form">
-            <i class="fa fa-lock prefix grey-text"></i>
-            <input type="password" id="orangeForm-pass" class="form-control" ng-model="passwordConfirm" placeholder="Confirm Password">
-        </div> -->
-        	</br>
-        <p class="privacy-disclaimer"> By joining Pick-Up Play you are agreeing to our Privacy Policy &#38; Terms of Use. </p>
-        	</br>
-        <div class="text-center">
-            <button class="btn btn-outline-dark" ng-click="createUser(firstname, email, lastname, username, password)">Create Account</button>
-        </div>
+         <button ng-click="createUser(firstname, email, lastname, username, password)">Create Account</button>
     </form>
+
+
 </div>

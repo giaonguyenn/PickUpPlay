@@ -15,6 +15,18 @@
 	margin: auto;
 }
 
+.navbarLogo {
+	width: 15%;
+}
+
+#navbarLogo {
+	width: 109%;
+}
+
+#smallLogo {
+	width: 94%;
+}
+
 ul {
 	padding: 0;
 	display: flex;
@@ -31,11 +43,21 @@ li:hover {
 	color: #495057;
 }
 
+#smallLogo {
+	display: none;
+}
+
 .navbar .responsiveIcon {
 	display: none;
 }
 
 @media (max-width: 654px) {
+	#navbarLogo {
+		display: none;
+	}
+	#smallLogo {
+		display: initial;
+	}
 	.navbar ul {
 		display: none;
 	}

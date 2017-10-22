@@ -1,6 +1,6 @@
 <div class="profile-picture">
 	<form name="form">
-	    <img ngf-thumbnail="image || user.image">
+	    <img id="profile-picture" ngf-thumbnail="image || user.image">
 	    	<!-- <img src="{{user.image}}"/> -->
 	    <button name="image" ngf-select ng-model="image">Upload image</button>
 	    <button ng-click="submitImage(image, user.uid)">Submit</button>
