@@ -19,6 +19,8 @@
     <link rel="stylesheet" href="src/components/mapView/mapView.css">
     <link rel="stylesheet" href="src/components/sportsView/sportsView.css">
 
+    <link rel="shortcut icon" type="image/png" href="src/images/basketballIcon.png"/>
+
     <!--FIREBASE SCRIPT-->
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase.js"></script>
     <script src="https://www.gstatic.com/firebasejs/4.5.0/firebase-app.js"></script>
@@ -43,6 +45,34 @@
             messagingSenderId: "319938984301"
         };
         firebase.initializeApp(config);
+    </script>
+
+    <!--ANIMATING FAVICON-->
+    <script>
+        var favicon_images = [
+                    "src/images/basketballIcon.png",
+                    "src/images/bikingIcon.png",
+                    "src/images/footballIcon.png",
+                    "src/images/frisbeeIcon.png",
+                    "src/images/soocerIcon.png",
+                    "src/images/footballIcon.png",
+                    "src/images/tennisIcon.png",
+                    "src/images/volleyballIcon.png"
+                ],
+        image_counter = 0; // To keep track of the current image
+
+        setInterval(function() {
+            $("link[rel='icon']").remove();
+            $("link[rel='shortcut icon']").remove();
+            $("head").append('<link rel="icon" href="' + favicon_images[image_counter] + '" type="image/gif">');
+            
+            // If last image then goto first image
+            // Else go to next image    
+            if(image_counter == favicon_images.length -1)
+                image_counter = 0;
+            else
+                image_counter++;
+        }, 200);
     </script>
 </head>
 

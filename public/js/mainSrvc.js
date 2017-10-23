@@ -130,7 +130,10 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
         		map.setMapTypeId('styled_map');
         		
 		        var marker = new google.maps.Marker({
+		        	map: map,
+	          		animation: google.maps.Animation.DROP,
 		          	position: location,
+		          	icon: "./src/images/icon.png"
 		        });
 		        var pyrmont = new google.maps.LatLng(object.lat,object.lng);
 		        service = new google.maps.places.PlacesService(map);
@@ -178,7 +181,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	        	var icon = "";
 	        	switch(keyword) {
 	        		case "basketball courts":
-	        			icon = "./src/images/basketballIcon.png";
+	        			icon = "./src/images/basketball.png";
 	        			break;
 	        		case "biking trail":
 	        			icon = "./src/images/bikingIcon.png";

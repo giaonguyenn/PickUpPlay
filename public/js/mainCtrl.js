@@ -10,7 +10,17 @@ angular.module("PickUpPlayApp").controller("mainCtrl", function($scope, mainSrvc
       $state.go("searchBy");
   	})
     .catch((err) => {
-      // alert(err);
+      // $.extend({ alert: function (message, title) {
+      //   $("<div>Test</div>").dialog( {
+      //     buttons: { "Ok": function () { $(this).dialog("close"); } },
+      //     close: function (event, ui) { $(this).remove(); },
+      //     resizable: false,
+      //     title: title,
+      //     modal: true
+      //     }).text(message);
+      //   }
+      // });
+      alert(err);
       // 'use strict';
 
       // window.addEventListener('load', function() {
