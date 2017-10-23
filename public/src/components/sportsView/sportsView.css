@@ -1,5 +1,22 @@
 .all-sports {
 	margin-top: 5%;
+    margin-left: 9%;
+    margin-bottom: 1%;
+    width: 82%;
+    height: 10%;
+	border: 1px solid black;
+	background-color: rgba(255, 255, 255, .6);
+	border-radius: 7px;
+}
+
+.all-sports:hover {
+	background-color: white;
+	border: 1px solid white;
+}
+
+h1 {
+	line-height: 200%;
+	text-transform: uppercase;
 }
 
 .sports-container {
@@ -9,7 +26,82 @@
 
 .sports {
 	display: inline-block;
-	width: 30%;
 	border: 1px solid black;
-	margin: 10%;
+	margin: 1%;
+	padding-top: 1%;
+	height: 10%;
+	background-color: rgba(255, 255, 255, .6);
+	border-radius: 7px;
+}
+
+.sports:hover {
+	background-color: white;
+	border: 1px solid white;
+}
+
+.width0 {
+	width: 30%;
+	background-image: url("../../images/basketball.jpeg");
+	background-position: 159% 10%;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.width1 {
+	width: 50%;
+/*	background-image: url("../../images/biking.jpeg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;*/
+}
+
+.width2 {
+	width: 50%;
+	background-image: url("../../images/disc_golf.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.width3 {
+	width: 30%;
+	background-image: url("../../images/football.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+}
+
+.width4 {
+	background-image: url("../../images/soccer.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	z-index: 5;
+}
+
+.width5 {
+	background-image: url("../../images/tennis.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	z-index: 5;
+}
+
+.width6 {
+	background-image: url("../../images/volleyball.jpg");
+	background-position: center center;
+	background-repeat: no-repeat;
+	background-attachment: fixed;
+	background-size: cover;
+	z-index: 5;
+}
+
+p {
+	text-transform: capitalize;
 }

@@ -11,6 +11,17 @@
 	width: 100%;
 	padding-top: 15%;
 	overflow: hidden;
+	text-align: center;
+}
+
+#address {
+	width: 39% !important;
+	display: inline-block !important;
+}
+
+#zipcode {
+	width: 39% !important;
+	display: inline-block !important;
 }
 
 sports-view {

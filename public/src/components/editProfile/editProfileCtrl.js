@@ -9,4 +9,6 @@ angular.module("PickUpPlayApp").controller("editProfileCtrl", function($scope, m
   		});
 	};
 
+	$scope.gamesCreated = mainSrvc.gamesCreated;
+
 });

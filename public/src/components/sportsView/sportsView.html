@@ -3,8 +3,8 @@
 </div>
 
 <div class="sports-container">
-	<div class="sports" ng-repeat="sport in sports" ui-sref="mapView({zip:address || zipcode, searchTerm: sport.search_term})">
+	<div ng-class="'width'+($index % 4)" class="sports" ng-repeat="sport in sports" ui-sref="mapView({zip:address || zipcode, searchTerm: sport.search_term})">
 		<p>{{sport.name}}</p>
-		<p>{{sport.minimum_players}}</p>
+		<p>Minimum Players Needed: {{sport.minimum_players}}</p>
 	</div>
 </div>
