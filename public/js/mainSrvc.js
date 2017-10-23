@@ -181,7 +181,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	        	var icon = "";
 	        	switch(keyword) {
 	        		case "basketball courts":
-	        			icon = "./src/images/basketball.png";
+	        			icon = "./src/images/basketballIcon.png";
 	        			break;
 	        		case "biking trail":
 	        			icon = "./src/images/bikingIcon.png";
@@ -207,8 +207,8 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	          		animation: google.maps.Animation.DROP
 	        	});
 
-				var contentString = place.name + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> __ games currently in session</p><br/>" + "<p>Create game</p>" +
-			  	'<a href="/#/gameView/' + place.id + '"><img border="0" align="center" style="width: 20px;float:right" src="./src/images/plusIcon.png"></a>';
+				var contentString = 
+					"<div style='background-color: #006D99; color: white; padding: 5px; width: 194px; text-transform: uppercase; font-weight: bold'><b>" + place.name + "</b></div>" + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> __ games currently in session</p><br/>" + "<a href='/#/gameView/" + place.id + "' style='color: grey' onmouseover='this.style.color='#006D99''><p><i class='fa fa-plus-circle' aria-hidden='true'></i> Create/Join Games</p></a>";
 
         		var infowindow = new google.maps.InfoWindow({});
 

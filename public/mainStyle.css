@@ -18,3 +18,12 @@ a:hover {
 	text-decoration: none;
 	color: inherit;
 }
+
+body {
+	font-family: arial;
+}
+
+::-webkit-input-placeholder {
+  color: red;
+  opacity: 1; 
+}

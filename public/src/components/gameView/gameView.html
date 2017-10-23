@@ -1,30 +1,35 @@
-<p>GAME VIEW</p>
+<div class="gameView-container">
 
-<p>{{place.name}}</p>
+    <div class="more-container">
 
-<form class="h5 text-center mb-4">
-    <div class="md-form">
-        <i class="fa fa-user prefix grey-text"></i>
-        <input type="text" id="orangeForm-name" class="form-control" ng-model="game" placeholder="Game">
-    </div>
-    <div class="md-form">
-        <i class="fa fa-user prefix grey-text"></i>
-        <input type="text" id="orangeForm-name" class="form-control" ng-model="numberOfPlayers" placeholder="Number of Players">
-    </div>
-    <div class="md-form">
-        <i class="fa fa-user prefix grey-text"></i>
-        <input type="text" id="orangeForm-username" class="form-control" ng-model="time" placeholder="Time">
-    </div>
-    	</br>
-    <div class="text-center">
-        <button class="btn btn-deep-orange" ng-click="createGame(user.uid, game, numberOfPlayers, time, place.id)">Create Game</button>
-    </div>
-</form>
+        <p class="place-name">{{place.name}} Test</p>
 
-<div class="current_games" ng-repeat="currentgame in currentgames">
-    <p>{{currentgame.game}}</p>
-    <p>{{currentgame.players}} needed</p>
-    <p>At {{currentgame.time}}</p>
-    <p>Created by: <a ng-click="getMyGames(currentgame.uid)">{{currentgame.username}}</a></p>
-    <!-- <button type="button" ng-click="deleteGame()" -->
+        <form class="h5 text-center mb-4">
+            <div class="md-form">
+                <input type="text" id="orangeForm-name" class="form-control" ng-model="game" style="font-family:Arial, FontAwesome" placeholder="&#xf1e3; Game">
+            </div>
+            <div class="md-form">
+                <input type="text" id="orangeForm-name" class="form-control" ng-model="numberOfPlayers" style="font-family:Arial, FontAwesome" placeholder="&#xf2be; Number of Players">
+            </div>
+            <div class="md-form">
+                <input type="text" id="orangeForm-username" class="form-control" ng-model="time" style="font-family:Arial, FontAwesome" placeholder="&#xf017; Time">
+            </div>
+            	</br>
+            <div class="text-center">
+                <button class="btn btn-deep-orange" ng-click="createGame(user.uid, game, numberOfPlayers, time, place.id)">Create Game</button>
+            </div>
+        </form>
+
+        </div>
+
+        <div class="current_games" ng-repeat="currentgame in currentgames">
+            <p>{{currentgame.game}}</p>
+            <p>{{currentgame.players}} needed</p>
+            <p>At {{currentgame.time}}</p>
+            <p>Created by: <a ng-click="getMyGames(currentgame.uid)">{{currentgame.username}}</a></p>
+            <!-- <button type="button" ng-click="deleteGame()" -->
+        </div>
+
+    </div>
+
 </div>

@@ -52,6 +52,7 @@
 #menu li {
 	display: inline-block;
 	margin: 10px;
+    text-transform: uppercase;
 }
 
 #menu li:hover {
