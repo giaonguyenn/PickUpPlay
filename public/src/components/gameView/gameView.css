@@ -1,9 +1,43 @@
 .gameView-container {
 	width: 100vw;
-	height: 100vh;
-	padding-top: 25%;
+	padding-top: 20%;
+	text-align: center;
 }
 
-.more-container {
-	padding-top: 7%;
+.card {
+	width: 80%;
+	margin: 0 auto;
+}
+
+.card-header {
+	background-color: #006D99;
+	padding-bottom: 0;
+}
+
+.place-name {
+	font-weight: bold;
+	color: grey;
+	text-transform: uppercase;
+}
+
+.game-title {
+	text-transform: uppercase;
+	font-weight: bold;
+	color: white;
+}
+
+.card-block {
+	padding-left: 5%;
+}
+
+.card-text {
+	margin-bottom: .25em;
+}
+
+.user-created {
+	padding-left: 5%;
+}
+
+.username {
+	color: #006D99 !important;
 }
