@@ -1,59 +1,3 @@
-<!--ORIGINAL CODE-->
-
-<!-- <div class="profile-container">
-	<div id="soccer_field">
-
-		<div class="profile-picture">
-			<form name="form">
-			    <img id="profile-picture" ngf-thumbnail="image || user.image">
-			    <button name="image" ngf-select ng-model="image">Upload image</button>
-			    <button ng-click="submitImage(image, user.uid)">Submit</button>
-			</form>
-			
-		</div>
-
-		<div class="profile">
-			<p>{{user.firstname}} {{user.lastname}}</p>
-			<p>{{user.username}}</p>
-			<p>Games created:</p>
-			<p>Games participated:</p>
-			<p>Sports badge earned:</p>
-
-			<button type="button" id="letsPlayButton" ui-sref="searchBy">Let's Play!</button>
-	
-			<button class="btn btn-caution" ng-click="signOut()">Sign Out</button>
-		</div>
-
-	</div>
-</div> -->
-
-<!--TESTER #1-->
-
-<!-- <div class="profile-container">
-	<div class="bgImage-container">
-	</div>
-	<div class="bottom-portion">
-		<div class="profile-picture">
-			    <img id="profile-picture" ngf-thumbnail="image || user.image">
-			<div class="upload-buttons">
-				<button name="image" ngf-select ng-model="image"><i class="fa fa-pencil" aria-hidden="true"></i></button>
-				<button ng-click="submitImage(image, user.uid)">Upload</button>
-			</div>
-			<div class="name">
-				<p>{{user.firstname}} {{user.lastname}}</p>
-				<p>{{user.username}}</p>
-			</div>
-			<p>Games created:</p>
-			<p>Games participated:</p>
-
-			<button type="button" id="letsPlayButton" ui-sref="searchBy">Let's Play!</button>
-		</div>
-	</div>
-</div> -->
-
-
-<!--TESTER #2-->
-
 <div class="profile-container">
 	<div class="top-portion">
 	</div>
@@ -68,6 +12,12 @@
 				<button name="image" ngf-select ng-model="image"><i class="fa fa-pencil" aria-hidden="true"></i></button>
 				<button ng-click="submitImage(image, user.uid)">Upload</button>
 			</div>
+		</div>
+		<div class="profile-info">
+			<p class="stats">Games created: {{gamesCreated}}</p>
+		</div>
+		<div class="lets-play">
+			<button type="button" id="letsPlayButton" ui-sref="searchBy">Let's Play!</button>
 		</div>
 	</div>
 </div>

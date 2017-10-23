@@ -73,7 +73,7 @@
 	padding-top: 15%;
 	width: 100vw;
 	height: 100vh;
-	background-image: url("../../images/soccer_field.jpeg");
+	background-image: url("../../images/soccer_field_overlay.jpg");
 	background-size: cover;
 }
 
@@ -83,7 +83,7 @@
 
 .profile-picture {
 	margin-left: 7%;
-	transform: translateY(-50%);
+	transform: translateY(-71%);
 	max-width: 150px;
 	width: 150px;
 	height: 180px;
@@ -105,7 +105,7 @@
 .name {
 	position: absolute;
 	left: 124%;
-	top: 28%;
+	top: 12%;
 	width: auto;
 	height: auto;
 	font-weight: bold;
@@ -120,6 +120,7 @@
 	top: 92%;
 	width: auto;
 	height: auto;
+	font-size: .75em;
 	font-weight: bold;
 	text-shadow: 0px 0px 10px #B6B6BF;
 	color: #FEFFFE;
@@ -132,6 +133,15 @@
 
 .userName {
 	font-size: 22px;
+	font-weight: normal;
+}
+
+.profile-info {
+	text-align: center
+}
+
+.lets-play {
+	text-align: center;
 }
 
 .bottom-portion {
