@@ -1,3 +1,140 @@
-#profile-picture {
+/*.profile-container {
+	padding-top: 8%;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../../images/soccer_field.jpeg");
+	background-size: cover
+}*/
+
+/*#profile-picture {
 	width: 40%;
+}
+
+.profile {
+	background-color: white;
+}*/
+
+/* TEST #1-->
+
+.bgImage-container {
+	height: 40%;
+	background-color: transparent;
+}
+
+.bottom-portion {
+	height: 60%;
+	background-color: rgba(255, 255, 255, 0.6);
+	text-align: right;
+}
+
+.bottom-portion .profile-picture {
+	max-width: 150px;
+	width: 150px;
+	height: 150px;
+	margin-left: 5%;
+	transform: translateY(-50%);
+	border: 2px solid white;
+	border-radius: 50%;
+}
+
+#profile-picture {
+	max-width: 150px;
+	width: 150px;
+	height: 180px;
+	margin-left: -1%;
+	margin-top: 50%;
+	transform: translateY(-50%);
+	border: 2px solid white;
+	border-radius: 50%;
+	display: flex;
+}
+
+.upload-buttons {
+	margin-top: 93%;
+	text-align: center;
+}
+
+.bottom-portion .profile-picture .name {
+	position: absolute;
+	left: 120%;
+	top: 20%;
+	width: auto;
+	height: auto;
+	font-size: 22px;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px #B6B6BF;
+	color: #FEFFFE;
+	white-space: nowrap;
+}*/
+
+/*TEST #2*/
+
+.profile-container {
+	padding-top: 15%;
+	width: 100vw;
+	height: 100vh;
+	background-image: url("../../images/soccer_field.jpeg");
+	background-size: cover;
+}
+
+.top-portion {
+	height: 37%;
+}
+
+.profile-picture {
+	margin-left: 7%;
+	transform: translateY(-50%);
+	max-width: 150px;
+	width: 150px;
+	height: 180px;
+	background-color: white;
+	display: inline-block;
+	border-radius: 50%;
+}
+
+#profile-picture {
+	margin-top: 60%;
+	transform: translateY(-50%);
+	width: 150px;
+	height: 180px;
+	display: inline-block;
+	border-radius: 50%;
+	border: 2px solid white;
+}
+
+.name {
+	position: absolute;
+	left: 124%;
+	top: 28%;
+	width: auto;
+	height: auto;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px #B6B6BF;
+	color: #FEFFFE;
+	white-space: nowrap;
+}
+
+.upload-buttons {
+	position: absolute;
+	left: 15%;
+	top: 92%;
+	width: auto;
+	height: auto;
+	font-weight: bold;
+	text-shadow: 0px 0px 10px #B6B6BF;
+	color: #FEFFFE;
+	white-space: nowrap;
+}
+
+.fullName {
+	font-size: 26px;
+}
+
+.userName {
+	font-size: 22px;
+}
+
+.bottom-portion {
+	height: 68%;
+	background-color: rgba(255, 255, 255, 0.6);
 }

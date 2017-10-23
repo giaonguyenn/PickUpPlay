@@ -6,6 +6,7 @@
 	background-size: cover;
 	background-color: #464646;
 	min-height: 100vh;
+	z-index: -20;
 }
 
 a {
@@ -17,7 +18,3 @@ a:hover {
 	text-decoration: none;
 	color: inherit;
 }
-
-/*navbar {
-	display: none;
-}*/
