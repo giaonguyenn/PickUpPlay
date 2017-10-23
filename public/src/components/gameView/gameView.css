@@ -4,20 +4,22 @@
 	text-align: center;
 }
 
+.place-name {
+	font-weight: bold;
+	color: grey;
+	text-transform: uppercase;
+}
+
 .card {
 	width: 80%;
 	margin: 0 auto;
+	margin-bottom: 2%;
+	text-align: left;
 }
 
 .card-header {
 	background-color: #006D99;
 	padding-bottom: 0;
-}
-
-.place-name {
-	font-weight: bold;
-	color: grey;
-	text-transform: uppercase;
 }
 
 .game-title {
@@ -34,7 +36,7 @@
 	margin-bottom: .25em;
 }
 
-.user-created {
+.card-link {
 	padding-left: 5%;
 }
 

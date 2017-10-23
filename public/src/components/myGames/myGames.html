@@ -1,9 +1,16 @@
-<p>These are my games</p>
+<div class="myGames-container">
+	<p class="myGames-title">Games Created</p>
 
-<div class="my-games" ng-repeat="mygame in myGames">
-    <p>{{mygame.game}}</p>
-    <p>{{mygame.players}} needed</p>
-    <p>At {{mygame.time}}</p>
-    <p>location name needed</p>
-
+	<div class="my-games card" ng-repeat="mygame in myGames">
+		<div class="card-header">
+	    	<p class="game-title">{{mygame.game}}</p>
+	    </div>
+	    <div class="card-block">
+		    <p class="card-text">{{mygame.players}} needed</p>
+		    <p class="card-text">At {{mygame.time}}</p>
+		</div>
+		<div class="card-link">
+	    	<p>location name needed</p>
+	    </div>
+	</div>
 </div>

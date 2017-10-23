@@ -1,0 +1,16 @@
+.myGames-container {
+	width: 100vw;
+	padding-top: 20%;
+	text-align: center;
+}
+
+.myGames-title {
+	font-weight: bold;
+	color: grey;
+	text-transform: uppercase;
+}
+
+.card-link {
+	padding-left: 5%;
+	color: #006D99 !important;
+}
