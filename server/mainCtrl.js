@@ -1,3 +1,5 @@
+const moment = require('moment');
+
 module.exports = {
 	createUser: (req, res, next) => {
 		req.app.get("db")
@@ -32,6 +34,9 @@ module.exports = {
 	},
 
 	createGame: (req, res, next) => {
+		console.log(req.body.time);
+		req.body.time = moment(req.body.time).format('h:mm A');
+		console.log(req.body.time);
 		req.app
 			.get("db")
 			.create_game(req.body)

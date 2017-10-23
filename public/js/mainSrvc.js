@@ -243,9 +243,11 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
    			.get(`/user/myGames/${useruid}`)
    			.then((response) => {
    				console.log(response);
-   				that.myGames = response.data;
-   				return response.data;
-   			})
+   				that.myGames = response.data.map(game => {
+        			game.time = moment(game.time, 'h:mm a').format('h:mm A');
+   					return game;
+   				});
+   		});
    	};
 
     this.signOut = () => {

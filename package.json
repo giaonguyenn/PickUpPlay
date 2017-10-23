@@ -10,7 +10,8 @@
     "express": "^4.16.2",
     "express-session": "^1.15.6",
     "express-sessions": "^1.0.6",
-    "massive": "^4.4.0"
+    "massive": "^4.4.0",
+    "moment": "^2.19.1"
   },
   "devDependencies": {
     "nodemon": "^1.12.1"

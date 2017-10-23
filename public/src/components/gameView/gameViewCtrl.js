@@ -24,7 +24,10 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   function getCurrentGames() {
     mainSrvc.getCurrentGames($stateParams.id)
     .then((response) => {
-      $scope.currentgames = response;
+      $scope.currentgames = response.map(game => {
+        game.time = moment(game.time, 'h:mm a').format('h:mm A');
+        return game;
+      });
     });
   };
 

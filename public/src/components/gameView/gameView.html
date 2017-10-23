@@ -10,7 +10,7 @@
                 <input type="text" id="orangeForm-name" class="form-control" ng-model="numberOfPlayers" style="font-family:Arial, FontAwesome" placeholder="&#xf2be; Number of Players">
             </div>
             <div class="md-form">
-                <input type="text" id="orangeForm-username" class="form-control" ng-model="time" style="font-family:Arial, FontAwesome" placeholder="&#xf017; Time">
+                <input type="time" id="time" class="form-control" ng-model="time" style="font-family:Arial, FontAwesome" placeholder="&#xf017; Time">
             </div>
             	</br>
             <div class="text-center">
@@ -24,11 +24,11 @@
             </div>
             <div class="card-block">
                 <p class="card-text">{{currentgame.players}} players needed</p>
-                <p class="card-text">At {{currentgame.time}}</p>
+                <p class="card-text">At {{currentgame.time | date: "h:mma"}}</p>
             </div>
             <div class="card-link">
                 <p>Created by: <a class="username" ng-click="getMyGames(currentgame.uid)">{{currentgame.username}}</a></p>
-                <!-- <button type="button" ng-click="deleteGame()" -->
+                <!-- <button type="button" ng-click="deleteG()" -->
             </div>
         </div>
 
