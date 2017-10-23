@@ -45,6 +45,14 @@ module.exports = {
 			});
 	},
 
+	// getNumberOfGamesCreated: (req, res, next) => {
+	// 	req.app.get("db")
+	// 		.get_number_of_games_created(req.body)
+	// 		.then((response) => {
+	// 			res.status("200").send(numberOfGamesCreated)
+	// 		});
+	// }, 
+
 	getCurrentGames: (req, res, next) => {
 		req.app.get("db")
 			.get_current_games(req.params.id)

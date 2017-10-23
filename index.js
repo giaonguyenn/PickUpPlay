@@ -44,6 +44,8 @@ app.get("/sportsView/allSports", mainCtrl.getSports);
 
 app.post("/users/createGame", mainCtrl.createGame);
 
+// app.get("/games/gamesCreated", mainCtrl.getNumberOfGamesCreated);
+
 app.get("/games/currentGames/:id", mainCtrl.getCurrentGames);
 
 app.get("/user/myGames/:id", mainCtrl.getMyGames);

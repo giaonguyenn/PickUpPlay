@@ -9,7 +9,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
 	var searchTerms = [];
 
-	this.gamesCreated;
+	// this.gamesCreated;
 
 	this.user = {};
 	//SIGNING IN USER AND AUTHENTICATING WITH FIREBASE
@@ -81,7 +81,13 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	    return defer.promise;
 	};
 
-	this.getGamesCreated
+	// this.getNumberOfGamesCreated = (uid) => {
+	// 	return $http
+	// 		.get("http://localhost:3000/games/gamesCreated")
+	// 		.then((response) => {
+	// 			console.log(response);
+	// 		});
+	// };
 
    	//PULLING GAMES FROM DATABASE FOR SPORTSVIEW PAGE
    	this.getSports = () => {
