@@ -10,4 +10,9 @@ angular.module("PickUpPlayApp").controller("myGamesCtrl", function($scope, mainS
 
 	$scope.myGames = mainSrvc.myGames;
 
+	// $scope.placeName = mainSrvc.placeName;
+	// console.log($scope.placeName);
+	// $scope.placeName = obj.placeName;
+	// console.log($scope.placeName);
+
 });

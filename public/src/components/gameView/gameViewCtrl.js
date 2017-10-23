@@ -34,6 +34,11 @@ angular.module("PickUpPlayApp").controller("gameViewCtrl", function($scope, main
   $scope.getMyGames = (useruid) => {
     mainSrvc.getMyGames(useruid)
     	.then((response) => {
+        // var obj = {
+        //   response: response,
+        //   placeName: placeName
+        // };
+        // console.log(obj);
         $state.go("myGames", response);
     });
   };

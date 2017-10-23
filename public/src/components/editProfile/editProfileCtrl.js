@@ -9,6 +9,7 @@ angular.module("PickUpPlayApp").controller("editProfileCtrl", function($scope, m
   	});
 	
 	$scope.user = mainSrvc.user;
+
 	// $scope.uid = mainSrvc.user.uid;
 	// this.uid = $scope.uid;
 

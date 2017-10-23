@@ -1,6 +1,6 @@
 <div class="gameView-container">
 
-        <p class="place-name">{{place.name}} Test</p>
+        <p class="place-name">{{place.name}}</p>
 
         <form class="h5 text-center mb-4">
             <div class="md-form">
@@ -27,7 +27,7 @@
                 <p class="card-text">At {{currentgame.time | date: "h:mma"}}</p>
             </div>
             <div class="card-link">
-                <p>Created by: <a class="username" ng-click="getMyGames(currentgame.uid)">{{currentgame.username}}</a></p>
+                <p>Created by: <a class="username" ng-click="getMyGames(currentgame.uid, place.name)">{{currentgame.username}}</a></p>
                 <!-- <button type="button" ng-click="deleteG()" -->
             </div>
         </div>

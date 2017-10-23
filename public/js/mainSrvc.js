@@ -214,7 +214,7 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 	        	});
 
 				var contentString = 
-					"<div style='background-color: #006D99; color: white; padding: 5px; width: 194px; text-transform: uppercase; font-weight: bold'><b>" + place.name + "</b></div>" + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> __ games currently in session</p><br/>" + "<a href='/#/gameView/" + place.id + "'><p><i class='fa fa-plus-circle' aria-hidden='true'></i> Create/Join Games</p></a>";
+					"<div style='background-color: #006D99; color: white; padding: 5px; width: 194px; text-transform: uppercase; font-weight: bold'><b>" + place.name + "</b></div>" + "<br/><br/>" + place.vicinity + "<br/><br/>" + "<p> Games currently in session</p><br/>" + "<a href='/#/gameView/" + place.id + "'><p><i class='fa fa-plus-circle' aria-hidden='true'></i> Create/Join Games</p></a>";
 
         		var infowindow = new google.maps.InfoWindow({});
 
@@ -244,11 +244,10 @@ angular.module("PickUpPlayApp").service("mainSrvc", function($http, $q, $state) 
 
    	that.myGames = [];
 
-   	this.getMyGames = (useruid) => {
+   	this.getMyGames = (useruid, placeName) => {
    		return $http
    			.get(`/user/myGames/${useruid}`)
    			.then((response) => {
-   				console.log(response);
    				that.myGames = response.data.map(game => {
         			game.time = moment(game.time, 'h:mm a').format('h:mm A');
    					return game;
