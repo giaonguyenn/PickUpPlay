@@ -1,22 +1,25 @@
 <div class="navigation">
-  
-    <div class="navbar">
-
-    	<a class="navbarLogo" href="#/searchBy">
-    		<img id="navbarLogo" src="src/images/greyLogo.png"/>
-    		<img id="smallLogo" src="src/images/smallLogo.png"/>
-    	</a>
-  
-	    <ul class="menu">
+    <div class="navbarLogo">
+       	<a href="#/searchBy">
+       		<img id="navbarLogo" src="src/images/greyLogo.png"/>
+       		<img id="smallLogo" src="src/images/smallLogo.png"/>
+       	</a>
+    </div>
+    <div class="menu">
+    	<ul id="menu">
 	    	<a ui-sref="searchBy"><li>Home</li></a>
-	        <a ui-sref="editProfile"><li>My Profile</li></a>
-	        <a ui-sref="myGames"><li>My Game</li></a>
-	        <a ui-sref="login"><li ng-click="signOut()">Sign Out</li></a>
-	    </ul>
-
-	    <div class="responsiveIcon">
-    		<a href="#"><i class="fa fa-bars fa-2x" aria-hidden="true"></i></a>
-    	</div>
+		    <a ui-sref="editProfile"><li>My Profile</li></a>
+		    <a ui-sref="myGames"><li>My Game</li></a>
+		    <a ui-sref="login"><li ng-click="signOut()">Sign Out</li></a>
+       	</ul>
+		<a id="click-a"><i class="fa fa-bars fa-2x"></i></a>
 	</div>
-      
-</div> 
+</div>
+<div class="nav">
+    <ul>
+       	<li><a ui-sref="searchBy">HOME</a></li>
+       	<li><a ui-sref="editProfile">PROFILE</a></li>
+       	<li><a ui-sref="myGames">MY GAMES</a></li>
+       	<li ng-click="signOut()"><a ui-sref="login">SIGN OUT</a></li>
+    </ul>
+</div>
